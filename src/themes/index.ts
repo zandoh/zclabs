@@ -1,17 +1,11 @@
-import dark from "./dark";
-import light, { AppTheme } from "./light";
+import darkTheme from "./dark";
+import lightTheme from "./light";
 
-// @TODO try to figure this out with hydration
-// @TODO attempt to save this value in localStorage
-// export const DEFAULT_THEME: string =
-//   globalThis.window.matchMedia &&
-//   globalThis.window.matchMedia("(prefers-color-scheme: dark)").matches
-//     ? "dark"
-//     : "light";
+export const themes = {
+  dark: darkTheme,
+  light: lightTheme,
+} as const;
 
-export const DEFAULT_THEME: string = "light";
-
-export const themes: Record<string, AppTheme> = {
-  dark,
-  light,
-};
+export type AppTheme = typeof lightTheme;
+export type ThemeKey = keyof typeof themes;
+export type Themes = Record<ThemeKey, AppTheme>;

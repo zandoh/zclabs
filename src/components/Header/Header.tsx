@@ -1,21 +1,19 @@
 import { useState, useEffect } from "react";
-import { DEFAULT_THEME } from "../../themes";
-import { applyTheme } from "../../themes/utils";
+import type { ThemeKey } from "../../themes";
+import { applyTheme, getDefaultTheme } from "../../themes/utils";
 import HeaderSettingsIcon from "./HeaderSettingsIcon";
 import HeaderSocialIcon from "./HeaderSocialIcon";
 
-// Why is this not a const? -- https://github.com/withastro/astro/issues/4220
+// Why is this not an arrow function? -- https://github.com/withastro/astro/issues/4220
 export default function Header() {
-  // @TODO somehow this is an invalid hook call -- probably SRR nature of astro
-  const [theme, setTheme] = useState<string>(DEFAULT_THEME);
+  const [theme, setTheme] = useState<ThemeKey>(getDefaultTheme());
 
-  // @TODO same ^
   useEffect(() => {
     applyTheme(theme);
   }, [theme]);
 
   return (
-    <div className="relative bg-white dark:bg-zinc-800">
+    <div className="relative bg-[color:var(--app-bg-header)]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
@@ -40,10 +38,10 @@ export default function Header() {
               label="GitHub"
               svgType="github"
             />
-            <HeaderSettingsIcon title="Settings" />
+            <HeaderSettingsIcon />
           </div>
         </div>
-        <hr className="h-1 rounded-sm border border-solid border-transparent bg-gradient-to-r" />
+        <hr className="h-1 rounded-sm border border-solid border-transparent bg-gradient-to-r bg-clip-content" />
       </div>
     </div>
   );

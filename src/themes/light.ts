@@ -1,4 +1,10 @@
 const lightTheme = {
+  color: {
+    html: "rgb(255 255 255)",
+    bgPrimary: "rgb(255 255 255)",
+    fillIcon: "rgb(55 65 81)", // gray-700
+    borderPrimary: "rgb(55 65 81)", // gray-700
+  },
   gradient: {
     // Default to  'Miami Vice'
     globalFrom: "rgb(34 211 238)",
@@ -8,5 +14,3 @@ const lightTheme = {
 };
 
 export default lightTheme;
-
-export type AppTheme = typeof lightTheme;
