@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from "react";
-import { handleKeyPress, KeyboardKeyCode } from "../hooks/useKeyPress";
+import { handleKeyPress, KeyboardKeyCode } from "../utils/handleKeyPress";
 import HeaderThemeSwitcher from "./HeaderThemeSwitcher";
 
 const HeaderSettingsMenu = ({ ...rest }: HTMLAttributes<HTMLDivElement>) => {

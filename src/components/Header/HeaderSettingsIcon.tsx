@@ -1,5 +1,5 @@
 import { HTMLAttributes, useState } from "react";
-import { handleKeyPress, KeyboardKeyCode } from "../hooks/useKeyPress";
+import { handleKeyPress, KeyboardKeyCode } from "../utils/handleKeyPress";
 import HeaderIcon from "./HeaderIcon";
 import HeaderSettingsMenu from "./HeaderSettingsMenu";
 
