@@ -1,9 +1,12 @@
-export default {
-  primary: "#61DAFB",
-  secondary: "#254E70",
-  negative: "#E45B78",
-  positive: "#A3D9B1",
-  textPrimary: "#333",
-  backgroundPrimary: "#EFEFEF",
-  backgroundSecondary: "#F6F9FC",
+const lightTheme = {
+  gradient: {
+    // Default to  'Miami Vice'
+    globalFrom: "rgb(34 211 238)",
+    globalVia: "rgb(103 232 249)",
+    globalTo: "rgb(232 121 249)",
+  },
 };
+
+export default lightTheme;
+
+export type AppTheme = typeof lightTheme;

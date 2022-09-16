@@ -1,7 +1,18 @@
+import { useState, useEffect } from "react";
+import { DEFAULT_THEME } from "../../themes";
+import { applyTheme } from "../../themes/utils";
 import HeaderSettingsIcon from "./HeaderSettingsIcon";
 import HeaderSocialIcon from "./HeaderSocialIcon";
 
 const Header = () => {
+  // @TODO somehow this is an invalid hook call -- probably SRR nature of astro
+  const [theme, setTheme] = useState<string>(DEFAULT_THEME);
+
+  // @TODO same ^
+  useEffect(() => {
+    applyTheme(theme);
+  }, [theme]);
+
   return (
     <div className="relative bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -31,7 +42,7 @@ const Header = () => {
             <HeaderSettingsIcon title="Settings" />
           </div>
         </div>
-        <hr className="h-1 rounded-sm border border-solid border-transparent bg-gradient-to-r from-cyan-400 via-cyan-300 to-fuchsia-400" />
+        <hr className="h-1 rounded-sm border border-solid border-transparent bg-gradient-to-r" />
       </div>
     </div>
   );
