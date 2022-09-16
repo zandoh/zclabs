@@ -1,9 +1,19 @@
 import type { HTMLAttributes } from "react";
+import type { ThemeKey } from "../../themes";
 import subThemes, { SubThemeAttributes } from "../../themes/subThemes";
 import { handleKeyPress, KeyboardKeyCode } from "../utils/handleKeyPress";
 import HeaderThemeSwitcher from "./HeaderThemeSwitcher";
 
-const HeaderSettingsMenu = ({ ...rest }: HTMLAttributes<HTMLDivElement>) => {
+interface HeaderSettingsMenuProps extends HTMLAttributes<HTMLDivElement> {
+  setTheme: React.Dispatch<React.SetStateAction<ThemeKey>>;
+  theme: ThemeKey;
+}
+
+const HeaderSettingsMenu = ({
+  setTheme,
+  theme,
+  ...rest
+}: HeaderSettingsMenuProps) => {
   const changeSubTheme = (subTheme: SubThemeAttributes) => {
     document.documentElement.style.setProperty(
       "--tw-gradient-from",
@@ -40,8 +50,8 @@ const HeaderSettingsMenu = ({ ...rest }: HTMLAttributes<HTMLDivElement>) => {
           ></div>
         ))}
       </div>
-      <div className="flex flex-col p-2">
-        <HeaderThemeSwitcher />
+      <div className="mb-2 flex flex-col p-2">
+        <HeaderThemeSwitcher theme={theme} setTheme={setTheme} />
       </div>
     </div>
   );

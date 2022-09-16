@@ -1,9 +1,19 @@
 import { HTMLAttributes, useState } from "react";
+import type { ThemeKey } from "../../themes";
 import { handleKeyPress, KeyboardKeyCode } from "../utils/handleKeyPress";
 import HeaderIcon from "./HeaderIcon";
 import HeaderSettingsMenu from "./HeaderSettingsMenu";
 
-const HeaderSettingsIcon = ({ ...rest }: HTMLAttributes<HTMLDivElement>) => {
+interface HeaderSettingsIconProps extends HTMLAttributes<HTMLDivElement> {
+  setTheme: React.Dispatch<React.SetStateAction<ThemeKey>>;
+  theme: ThemeKey;
+}
+
+const HeaderSettingsIcon = ({
+  setTheme,
+  theme,
+  ...rest
+}: HeaderSettingsIconProps) => {
   const [areSettingsShown, setAreSettingsShown] = useState<boolean>(false);
 
   const toggleSettings = () => {
@@ -28,7 +38,7 @@ const HeaderSettingsIcon = ({ ...rest }: HTMLAttributes<HTMLDivElement>) => {
       </div>
       {areSettingsShown && (
         <div className="relative">
-          <HeaderSettingsMenu />
+          <HeaderSettingsMenu theme={theme} setTheme={setTheme} />
         </div>
       )}
     </>

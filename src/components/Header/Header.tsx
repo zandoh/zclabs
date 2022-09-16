@@ -13,7 +13,7 @@ export default function Header() {
   }, [theme]);
 
   return (
-    <div className="relative bg-[color:var(--app-bg-header)]">
+    <div className="relative bg-[color:var(--app-bg-primary)]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
@@ -38,7 +38,7 @@ export default function Header() {
               label="GitHub"
               svgType="github"
             />
-            <HeaderSettingsIcon />
+            <HeaderSettingsIcon theme={theme} setTheme={setTheme} />
           </div>
         </div>
         <hr className="h-1 rounded-sm border border-solid border-transparent bg-gradient-to-r bg-clip-content" />

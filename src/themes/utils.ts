@@ -34,7 +34,7 @@ export const applyTheme = (theme: ThemeKey): void => {
   });
 };
 
-// @TODO attempt to save this value in localStorage
+// @TODO save/read this value to/from localStorage
 export const getDefaultTheme = (): ThemeKey => {
   // Window is undefined during SSR, need a sensible default for TypeScript
   if (SSR) {
@@ -47,14 +47,11 @@ export const getDefaultTheme = (): ThemeKey => {
 
   if (browserPrefDark) {
     globalThis.document.body.classList.add("dark");
-    // Add class to <html> tag
-    globalThis.document.documentElement.classList.add("bg-zinc-800");
 
     return "dark";
   }
 
   globalThis.document.body.classList.remove("dark");
-  globalThis.document.documentElement.classList.remove("bg-zinc-800");
 
   return "light";
 };
