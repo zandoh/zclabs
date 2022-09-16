@@ -1,0 +1,17 @@
+---
+import Header from "../components/Header/Header.jsx";
+import Hero from "../components/Hero.jsx";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>zclabs</title>
+  </head>
+  <body>
+    <Header client:load />
+    <Hero />
+  </body>
+</html>
