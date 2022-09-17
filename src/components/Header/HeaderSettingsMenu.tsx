@@ -28,7 +28,7 @@ const HeaderSettingsMenu = ({
 
   return (
     <div
-      className="absolute right-0 z-10 mt-8 w-36 origin-top-right rounded-md border border-[color:var(--app-border-primary)] bg-[color:var(--app-bg-primary)] shadow-2xl"
+      className="absolute right-0 z-10 mt-8 w-36 origin-top-right rounded-md border border-[color:var(--zc-color-theme-lighter)] bg-[color:var(--zc-color-theme)] shadow-2xl"
       role="menu"
       {...rest}
     >

@@ -2,10 +2,21 @@ import type { AppTheme } from "./index";
 
 const darkTheme: AppTheme = {
   color: {
-    html: "rgb(39 39 42)", // zinc-800
-    bgPrimary: "rgb(39 39 42)", // zinc-800
-    fillIcon: "rgb(107 114 128)", // gray-500
-    borderPrimary: "rgb(107 114 128)", // gray-500
+    100: "#737373",
+    200: "#666",
+    300: "#595959",
+    400: "#4d4d4d",
+    500: "#404040",
+    600: "#333",
+    700: "#262626",
+    800: "#1a1a1a",
+    900: "#0d0d0d",
+  },
+  text: {
+    default: "#ddd",
+    lighter: "#eee",
+    darker: "#c6c6c6",
+    reverse: "#262626",
   },
   gradient: {
     // Default to  'Miami Vice'

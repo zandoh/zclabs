@@ -26,10 +26,17 @@ const HeaderThemeSwitcher = ({
         type="checkbox"
         id="toggleMode"
         className="peer sr-only"
+        tabIndex={1}
         onChange={toggleTheme}
       />
-      <span className="absolute inset-0 rounded-full bg-blue-400 transition peer-checked:bg-blue-600"></span>
-      <span className="absolute inset-0 m-1 h-4 w-4 rounded-full bg-white transition peer-checked:translate-x-6"></span>
+      <span
+        className="absolute inset-0 rounded-full bg-blue-400 transition peer-checked:bg-blue-600"
+        tabIndex={-1}
+      ></span>
+      <span
+        className="absolute inset-0 m-1 h-4 w-4 rounded-full bg-white transition peer-checked:translate-x-6"
+        tabIndex={-1}
+      ></span>
     </label>
   );
 };
