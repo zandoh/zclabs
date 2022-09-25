@@ -2,7 +2,7 @@ import type { AppTheme } from "./index";
 
 const darkTheme: AppTheme = {
   color: {
-    100: "#737373",
+    100: "#ddd",
     200: "#666",
     300: "#595959",
     400: "#4d4d4d",

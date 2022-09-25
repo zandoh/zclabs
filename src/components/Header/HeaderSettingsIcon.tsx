@@ -1,4 +1,5 @@
-import { HTMLAttributes, useState } from "react";
+import { createRef, HTMLAttributes, useState } from "react";
+import { useOnClickOutside } from "../../hooks/onClickOutside";
 import type { ThemeKey } from "../../themes";
 import { handleKeyPress, KeyboardKeyCode } from "../utils/handleKeyPress";
 import HeaderIcon from "./HeaderIcon";
@@ -15,13 +16,15 @@ const HeaderSettingsIcon = ({
   ...rest
 }: HeaderSettingsIconProps) => {
   const [areSettingsShown, setAreSettingsShown] = useState<boolean>(false);
+  const headerSettingsRef = createRef<HTMLDivElement>();
+  useOnClickOutside(headerSettingsRef, () => setAreSettingsShown(false));
 
   const toggleSettings = () => {
     setAreSettingsShown((prevState) => !prevState);
   };
 
   return (
-    <>
+    <div ref={headerSettingsRef}>
       <div
         className="inline-flex items-stretch"
         onClick={toggleSettings}
@@ -41,7 +44,7 @@ const HeaderSettingsIcon = ({
           <HeaderSettingsMenu theme={theme} setTheme={setTheme} />
         </div>
       )}
-    </>
+    </div>
   );
 };
 

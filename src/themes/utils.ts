@@ -46,7 +46,6 @@ export const applyTheme = (theme: ThemeKey): void => {
   });
 };
 
-// @TODO save/read this value to/from localStorage
 export const getDefaultTheme = (): ThemeKey => {
   // Window is undefined during SSR, need a sensible default for TypeScript
   if (SSR) {
@@ -58,12 +57,8 @@ export const getDefaultTheme = (): ThemeKey => {
     globalThis.window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   if (browserPrefDark) {
-    globalThis.document.body.classList.add("dark");
-
     return "dark";
   }
-
-  globalThis.document.body.classList.remove("dark");
 
   return "light";
 };

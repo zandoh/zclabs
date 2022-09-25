@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from "react";
+import type { HTMLAttributes, RefObject } from "react";
 import type { ThemeKey } from "../../themes";
 import subThemes, { SubThemeAttributes } from "../../themes/subThemes";
 import { handleKeyPress, KeyboardKeyCode } from "../utils/handleKeyPress";
