@@ -24,7 +24,7 @@ const HeaderSettingsIcon = ({
   };
 
   return (
-    <div ref={headerSettingsRef}>
+    <div className="flex" ref={headerSettingsRef}>
       <div
         className="inline-flex items-stretch"
         onClick={toggleSettings}

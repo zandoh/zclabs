@@ -1,0 +1,45 @@
+---
+import Header from "../components/Header/Header.jsx";
+---
+
+<html lang="en" class="bg-[color:var(--zc-color-theme)]">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Zac Clark | zclabs</title>
+  </head>
+  <body>
+    <Header client:load />
+    <main
+      class="h-screen w-full flex flex-col justify-center items-center bg-[color:var(--zc-color-theme)]"
+    >
+      <h1
+        class="text-9xl font-extrabold text-[color:var(--zc-color-text-theme)] tracking-widest"
+      >
+        404
+      </h1>
+      <div
+        class="bg-[color:var(--tw-gradient-to)] px-2 text-sm rounded rotate-12 absolute"
+      >
+        Page Not Found
+      </div>
+      <button class="mt-5">
+        <a
+          class="relative inline-block text-sm font-medium text-[color:var(--tw-gradient-to)] group focus:outline-none focus:ring"
+          href="/"
+        >
+          <span
+            class="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 bg-[color:var(--tw-gradient-to)] group-hover:translate-y-0 group-hover:translate-x-0"
+          ></span>
+
+          <span
+            class="relative block px-8 py-3 bg-[color:var(--zc-color-theme)] border border-current"
+          >
+            Go Home
+          </span>
+        </a>
+      </button>
+    </main>
+  </body>
+</html>
