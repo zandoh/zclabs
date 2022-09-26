@@ -1,17 +1,8 @@
 ---
-import Header from "../components/Header/Header.jsx";
 import Hero from "../components/Hero.jsx";
+import PageLayout from "../components/PageLayout.astro";
 ---
 
-<html lang="en" class="bg-[color:var(--zc-color-theme)]">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Zac Clark | zclabs</title>
-  </head>
-  <body>
-    <Header client:load />
-    <Hero />
-  </body>
-</html>
+<PageLayout>
+  <Hero />
+</PageLayout>
