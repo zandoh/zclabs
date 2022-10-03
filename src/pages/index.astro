@@ -1,8 +1,16 @@
 ---
-import Hero from "../components/Hero.jsx";
 import PageLayout from "../components/PageLayout.astro";
+import Page from "../components/Page/Page";
+import PageContent from "../components/Page/PageContent";
+import Aside from "../components/Page/Aside";
+import Main from "../components/Page/Main";
 ---
 
 <PageLayout>
-  <Hero />
+  <Page>
+    <PageContent>
+      <Aside />
+      <Main />
+    </PageContent>
+  </Page>
 </PageLayout>

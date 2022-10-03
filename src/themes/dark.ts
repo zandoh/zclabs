@@ -2,27 +2,19 @@ import type { AppTheme } from "./index";
 
 const darkTheme: AppTheme = {
   color: {
-    100: "#ddd",
-    200: "#666",
-    300: "#595959",
-    400: "#4d4d4d",
-    500: "#404040",
-    600: "#333",
-    700: "#262626",
-    800: "#1a1a1a",
-    900: "#0d0d0d",
+    base: "#444",
+    lighter: "#666",
+    darker: "#222",
   },
   text: {
-    default: "#ddd",
-    lighter: "#eee",
-    darker: "#c6c6c6",
-    reverse: "#262626",
+    base: "#eee",
+    lighter: "#d5d5d5",
+    color: "#09aeea",
   },
   gradient: {
-    // Default to  'Miami Vice'
-    globalFrom: "rgb(34 211 238)",
-    globalVia: "rgb(103 232 249)",
-    globalTo: "rgb(232 121 249)",
+    globalFrom: "#21e1ae",
+    globalVia: "#09aeea",
+    globalTo: "#09aeea",
   },
 };
 
