@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import { BsSun, BsMoon } from "react-icons/bs";
 import { Switch } from "@headlessui/react";
+import { useEffect, useState } from "react";
 import { applyTheme, getDefaultTheme } from "../../../themes/utils";
 
 const AsideModeToggle = () => {

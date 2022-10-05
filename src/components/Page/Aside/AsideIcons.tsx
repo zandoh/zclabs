@@ -3,7 +3,7 @@ import {
   BsTwitter,
   BsGithub,
   BsFillEnvelopeFill,
-} from "react-icons/bs";
+} from "react-icons/bs/index";
 
 const AsideIcons = () => {
   return (
