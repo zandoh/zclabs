@@ -8,23 +8,29 @@ export default function Background() {
   const [theme, setTheme] = useState<ThemeKey>(getDefaultTheme());
 
   useEffect(() => {
-    window.addEventListener("mousemove", (event) => {
-      if (!bgRef || !bgRef.current) {
-        return;
-      }
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
 
-      const movementStrength = 23;
-      const screenWidth = document.body.clientWidth;
-      const pageX = event.pageX - screenWidth / 2;
-      const pageY = event.pageY - screenWidth / 2;
-      const styleHeight = movementStrength / screenWidth;
-      const styleWidth = movementStrength / screenWidth;
-      const styleX = styleWidth * pageX * -1;
-      const styleY = styleHeight * pageY * -1;
+    if (!prefersReducedMotion.matches) {
+      window.addEventListener("mousemove", (event) => {
+        if (!bgRef || !bgRef.current) {
+          return;
+        }
 
-      bgRef.current.style.backgroundPositionX = `calc(5% + ${styleX}px)`;
-      bgRef.current.style.backgroundPositionY = `calc(5% + ${styleY}px)`;
-    });
+        const movementStrength = 23;
+        const screenWidth = document.body.clientWidth;
+        const pageX = event.pageX - screenWidth / 2;
+        const pageY = event.pageY - screenWidth / 2;
+        const styleHeight = movementStrength / screenWidth;
+        const styleWidth = movementStrength / screenWidth;
+        const styleX = styleWidth * pageX * -1;
+        const styleY = styleHeight * pageY * -1;
+
+        bgRef.current.style.backgroundPositionX = `calc(5% + ${styleX}px)`;
+        bgRef.current.style.backgroundPositionY = `calc(5% + ${styleY}px)`;
+      });
+    }
   }, []);
 
   useEffect(() => {

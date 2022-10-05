@@ -2,15 +2,15 @@
 import PageLayout from "../components/PageLayout.astro";
 import Page from "../components/Page/Page";
 import PageContent from "../components/Page/PageContent";
-import Aside from "../components/Page/Aside";
+import Aside from "../components/Page/Aside/Aside";
 import Main from "../components/Page/Main";
 ---
 
 <PageLayout>
   <Page>
     <PageContent>
-      <Aside />
-      <Main />
+      <Aside client:load />
+      <Main client:load />
     </PageContent>
   </Page>
 </PageLayout>
