@@ -6,7 +6,10 @@ export default function Main({
   ...rest
 }: HTMLAttributes<HTMLDivElement>) {
   return (
-    <main className="" {...rest}>
+    <main
+      className="w-full rounded-tr-[32px] rounded-br-[32px] bg-white dark:bg-black"
+      {...rest}
+    >
       <h1>Main</h1>
     </main>
   );
