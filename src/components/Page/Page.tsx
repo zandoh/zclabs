@@ -7,7 +7,7 @@ export default function Page({
 }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className="block h-full min-h-full w-full overflow-hidden px-[100px]"
+      className="flex h-full min-h-full w-full overflow-hidden px-[100px]"
       {...rest}
     >
       {children}

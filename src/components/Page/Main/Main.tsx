@@ -7,6 +7,7 @@ export default function Main({
 }: HTMLAttributes<HTMLDivElement>) {
   return (
     <main
+      id="swup"
       className="w-full rounded-tr-[32px] rounded-br-[32px] bg-white dark:bg-black"
       {...rest}
     >
