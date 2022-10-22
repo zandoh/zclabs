@@ -1,6 +1,6 @@
 import { Switch } from "@headlessui/react";
 import { useEffect, useState } from "react";
-import { applyTheme, getDefaultTheme } from "../../../themes/utils";
+import { applyTheme, getDefaultTheme } from "../../themes/utils";
 
 const AsideModeToggle = () => {
   const [enabled, setEnabled] = useState(false);

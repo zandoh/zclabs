@@ -3,7 +3,7 @@ import PageLayout from "../components/PageLayout.astro";
 import Page from "../components/Page/Page";
 import PageContent from "../components/Page/PageContent";
 import Aside from "../components/Aside/Aside";
-import Main from "../components/Page/Main/Main";
+import Projects from "../components/Page/Projects/Projects";
 import Menu from "../components/Menu/Menu";
 ---
 
@@ -11,7 +11,7 @@ import Menu from "../components/Menu/Menu";
   <Page>
     <PageContent>
       <Aside client:load />
-      <Main client:load />
+      <Projects client:load />
     </PageContent>
     <Menu />
   </Page>
