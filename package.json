@@ -1,5 +1,6 @@
 {
-  "name": "@example/minimal",
+  "name": "@example/basics",
+  "type": "module",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,24 +8,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "prettier:write": "prettier --write .",
-    "prepare": "husky install"
-  },
-  "devDependencies": {
-    "@astrojs/react": "^1.0.0",
-    "@astrojs/tailwind": "^1.0.0",
-    "@astrojs/vercel": "^2.0.0",
-    "@types/react": "^18.0.18",
-    "astro": "^1.0.6",
-    "husky": "^8.0.1",
-    "prettier": "^2.7.1",
-    "prettier-plugin-tailwindcss": "^0.1.13",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "astro": "astro"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.3",
-    "react-icons": "^4.4.0"
+    "astro": "^1.5.2"
   }
 }
