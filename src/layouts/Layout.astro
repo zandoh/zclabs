@@ -1,4 +1,5 @@
 ---
+import Footer from "../components/Footer/Footer.astro";
 import Navigation from "../components/Navigation/Navigation.astro";
 
 export interface Props {
@@ -20,5 +21,6 @@ const { title } = Astro.props;
   <body class="bg-gray-900 mx-auto container px-6 lg:px-14 xl:px-0">
     <Navigation />
     <slot />
+    <Footer />
   </body>
 </html>
