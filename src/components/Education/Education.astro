@@ -1,19 +1,24 @@
 ---
 import EducationEntry from "./EducationEntry.astro";
+
+const educations = await Astro.glob("./entries/*.md");
+const sortedEducations = educations.sort((a, b) => {
+  return b.frontmatter.endYear > a.frontmatter.endYear ? 1 : -1;
+});
 ---
 
 <section>
   <p class="font-bold leading-none text-white text-5xl my-12">🎓 Education</p>
   <ol class="relative border-l border-gray-200 dark:border-gray-700">
-    <EducationEntry
-      timeframe="2014 — 2017"
-      school="Rochester Institute of Technology"
-      description={`Bachelor's Degree, Cum Laude, Web & Mobile Computing concentration in Application Development`}
-    />
-    <EducationEntry
-      timeframe="2012 — 2014"
-      school="SUNY Polytechnic Institute"
-      description={`Transferred to Rochester Institute of Technology (RIT)`}
-    />
+    {
+      sortedEducations.map((edu) => (
+        <EducationEntry
+          startYear={edu.frontmatter.startYear}
+          endYear={edu.frontmatter.endYear}
+          school={edu.frontmatter.school}
+          description={edu.compiledContent()}
+        />
+      ))
+    }
   </ol>
 </section>
