@@ -1,12 +1,39 @@
 ---
-export interface Props {
-  timeframe: string;
+export interface ExperienceEntryProps {
+  startDate: string;
+  endDate: string;
   company: string;
   title: string;
   description: string;
 }
 
-const { timeframe, company, title, description } = Astro.props;
+const { startDate, endDate, company, title, description } = Astro.props;
+
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+const startDateObj = new Date(startDate);
+const formattedStartDate = `${
+  monthNames[startDateObj.getMonth()]
+} ${startDateObj.getFullYear()}`;
+const formattedEndDate =
+  endDate === "Current"
+    ? "Current"
+    : `${monthNames[new Date(endDate).getMonth()]} ${new Date(
+        endDate
+      ).getFullYear()}`;
 ---
 
 <li class="mb-10 ml-4">
@@ -19,14 +46,13 @@ const { timeframe, company, title, description } = Astro.props;
   </h3>
   <time
     class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
-    >{timeframe}</time
+    >{formattedStartDate} - {formattedEndDate}</time
   >
   <span
     class="mb-1 text-sm font-bold leading-none text-gray-400 dark:text-gray-500 ml-2"
     >{company}</span
   >
-
-  <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-    <Fragment set:html={description} />
-  </p>
+  <span
+    class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"
+    set:html={description}></span>
 </li>
