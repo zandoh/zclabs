@@ -1,8 +1,14 @@
 ---
-import Hero from "../components/Hero.jsx";
-import PageLayout from "../components/PageLayout.astro";
+import Layout from "../layouts/Layout.astro";
+import Intro from "../components/Intro/Intro.astro";
+import Experience from "../components/Experience/Experience.astro";
+import Education from "../components/Education/Education.astro";
+import ProjectFeature from "../components/ProjectHomeFeature/ProjectFeature.astro";
 ---
 
-<PageLayout>
-  <Hero />
-</PageLayout>
+<Layout title="Zac Clark | zclabs">
+  <Intro />
+  <Experience />
+  <Education />
+  <ProjectFeature />
+</Layout>
