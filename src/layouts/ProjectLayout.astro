@@ -10,6 +10,15 @@ export interface ProjectLayoutProps {
   repoLink: string;
 }
 
+export interface ProjectAttributes {
+  slug: string;
+  title: string;
+  featuredTechnology: string;
+  summary: string;
+  date: string;
+  featured: boolean;
+}
+
 const { htmlTitle, title, imageSrc, imageAlt, description, repoLink } =
   Astro.props;
 ---

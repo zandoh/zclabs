@@ -1,5 +1,14 @@
 ---
+import type { ProjectAttributes } from "../../layouts/ProjectLayout.astro";
 import IntroHighlight from "./IntroHighlight.astro";
+
+const projects = await Astro.glob<ProjectAttributes>(
+  "../../pages/projects/*.md"
+);
+
+const featuredItems = projects.filter(
+  (project) => project.frontmatter.featured
+);
 ---
 
 <section>
@@ -36,18 +45,16 @@ import IntroHighlight from "./IntroHighlight.astro";
     </div>
     <div class="flex justify-start items-start flex-col xl:w-8/12">
       <p class="text-lg font-bold leading-none text-white">Featured</p>
-      <IntroHighlight
-        technology="Javascript"
-        title="📜 Front-end architecture"
-        summary={`Yuccie distillery lomo vegan narwhal. Quinoa gatekeep biodiesel fingerstache etsy, banjo aesthetic kale chips meh butcher man braid shaman affogato. Normcore kombucha pug etsy plaid. Health goth distillery pok pok, plaid farm-to-table man braid pinterest XOXO kombucha letterpress.`}
-        date="July 21st 1994"
-      />
-      <IntroHighlight
-        technology="Rust"
-        title="🦀 API Development"
-        summary={`Cronut drinking vinegar salvia put a bird on it yes plz la croix. Chartreuse 8-bit keffiyeh selvage edison bulb tacos biodiesel organic vibecession man braid mustache. Blog bespoke shaman hella bushwick, pitchfork paleo chambray retro prism messenger bag same. Vinyl chia sus chillwave jean shorts pour-over celiac lyft neutra air plant squid vape.`}
-        date="July 21st 1994"
-      />
+      {
+        featuredItems.map((item) => (
+          <IntroHighlight
+            technology={item.frontmatter.featuredTechnology}
+            title={item.frontmatter.title}
+            summary={item.frontmatter.summary}
+            date={item.frontmatter.date}
+          />
+        ))
+      }
     </div>
   </div>
 </section>
