@@ -1,7 +1,7 @@
 ---
 title: Senior Software Engineer
 company: Bryx
-startDate: October 31 2022
+startDate: 2022-10-31T00:00:00
 endDate: Current
 ---
 

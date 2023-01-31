@@ -1,16 +1,14 @@
 ---
+import { getCollection } from "astro:content";
 import ExperienceEntry from "./ExperienceEntry.astro";
-const experiences = await Astro.glob("./entries/**/*.md");
+
+const experiences = await getCollection("experience");
 const sortedExperiences = experiences.sort((a, b) => {
   const endDateA =
-    a.frontmatter.endDate === "Current"
-      ? new Date()
-      : new Date(a.frontmatter.endDate);
+    a.data.endDate === "Current" ? new Date() : new Date(a.data.endDate);
 
   const endDateB =
-    b.frontmatter.endDate === "Current"
-      ? new Date()
-      : new Date(b.frontmatter.endDate);
+    b.data.endDate === "Current" ? new Date() : new Date(b.data.endDate);
 
   return endDateB.getTime() > endDateA.getTime() ? 1 : -1;
 });
@@ -22,11 +20,11 @@ const sortedExperiences = experiences.sort((a, b) => {
     {
       sortedExperiences.map((exp) => (
         <ExperienceEntry
-          startDate={exp.frontmatter.startDate}
-          endDate={exp.frontmatter.endDate}
-          company={exp.frontmatter.company}
-          title={exp.frontmatter.title}
-          description={exp.compiledContent()}
+          startDate={exp.data.startDate}
+          endDate={exp.data.endDate}
+          company={exp.data.company}
+          title={exp.data.title}
+          description={exp.body}
         />
       ))
     }

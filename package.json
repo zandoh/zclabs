@@ -11,8 +11,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/tailwind": "^2.1.1",
-    "astro": "^1.5.2"
+    "@astrojs/tailwind": "^3.0.0-beta.1",
+    "astro": "^2.0.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.12",

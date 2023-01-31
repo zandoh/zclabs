@@ -1,14 +1,10 @@
 ---
-import type { ProjectAttributes } from "../../layouts/ProjectLayout.astro";
+import { getCollection } from "astro:content";
 import IntroHighlight from "./IntroHighlight.astro";
 
-const projects = await Astro.glob<ProjectAttributes>(
-  "../../pages/projects/*.md"
-);
-
-const featuredItems = projects.filter(
-  (project) => project.frontmatter.featured
-);
+const featuredProjects = await getCollection("project", (project) => {
+  return project.data.isFeatured;
+});
 ---
 
 <section>
@@ -39,19 +35,19 @@ const featuredItems = projects.filter(
           href="mailto:zclarkmail+zclabs@gmail.com"
           class="tracking-wide focus:outline-none focus:text-gray-300 text-base font-bold leading-none text-white"
         >
-          <p>Lets get in touch</p>
+          <p>Lets get in touch 📨</p>
         </a>
       </div>
     </div>
     <div class="flex justify-start items-start flex-col xl:w-8/12">
       <p class="text-lg font-bold leading-none text-white">Featured</p>
       {
-        featuredItems.map((item) => (
+        featuredProjects.map((project) => (
           <IntroHighlight
-            technology={item.frontmatter.featuredTechnology}
-            title={item.frontmatter.title}
-            summary={item.frontmatter.summary}
-            date={item.frontmatter.date}
+            technology={project.data.featuredTechnology}
+            title={project.data.title}
+            summary={project.data.summary}
+            date={project.data.date}
           />
         ))
       }

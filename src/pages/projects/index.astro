@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+
+// @@TODO eventually do some filtering here on a boolean for `published` and do some sorting here based on `publishedDate`
+const allProjects = await getCollection("project");
+
+const projects = allProjects.filter((project) => !project.data.isDraft);
+---
+
+<div>
+  Projects:
+  {
+    projects.map((project) => {
+      return (
+        <div>
+          <a
+            class="text-black"
+            href={"/projects/" + project.slug}
+            set:html={project.data.title}
+          />
+        </div>
+      );
+    })
+  }
+</div>
