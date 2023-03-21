@@ -1,21 +1,17 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import DefaultLayout from '../layouts/DefaultLayout.astro'
 ---
 
-<Layout title="404 | zclabs">
-  <section class="py-20">
-    <div class="flex flex-col items-center">
-      <h1 class="text-4xl font-black leading-tight text-white mb-14">
-        Oops! 404
-      </h1>
-      <img src="/404.gif" class="w-60" />
-      <a href="/" class="mt-14">
-        <button
-          type="button"
-          class="text-white bg-gradient-to-br from-green-300 via-blue-500 to-purple-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-          >Go Home 🏠</button
-        >
-      </a>
+<DefaultLayout title="404">
+  <section class="my-12">
+    <div class="container">
+      <h1>404</h1>
     </div>
   </section>
-</Layout>
+  <section class="my-12">
+    <div class="space-content container">
+      <p class="text-2xl">This page does not exist.</p>
+      <a class="button" href="/">Go Home 🚀</a>
+    </div>
+  </section>
+</DefaultLayout>
