@@ -1,16 +1,16 @@
 ---
-import '../assets/scss/globals.scss'
-import SiteMeta from '../components/SiteMeta.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
+import "../assets/scss/globals.scss";
+import SiteMeta from "../components/SiteMeta.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const {
-  title = 'Astro',
-  description = 'A starter project with accessibility features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.',
+  title = "Astro",
+  description = "A starter project with accessibility features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.",
   url,
-  image = '/social-preview-image.png',
-  author = 'Mark Teekman',
-} = Astro.props
+  image = "/social-preview-image.png",
+  author = "Mark Teekman",
+} = Astro.props;
 ---
 
 <html lang="en" dir="ltr">
@@ -25,7 +25,7 @@ const {
     <SiteMeta
       title={title}
       description={description.substring(0, 100)}
-      url={`${Astro.site}/${title.toLowerCase().replaceAll(' ', '-')}`}
+      url={`${Astro.site}/${title.toLowerCase().replaceAll(" ", "-")}`}
       image={image}
       author={author}
     />
@@ -37,15 +37,14 @@ const {
     </main>
     <Footer />
     <style lang="scss" is:global>
-      // theme settings
       :root {
         --radius-small: 3px;
         --radius-large: 6px;
         --gap-default: 2rem;
         --font-measure: 70ch;
-        --font-family-default: 'Open Sans', sans-serif;
-        --font-family-special: 'Open Sans', sans-serif;
-        // light theme
+        --font-family-default: "Open Sans", sans-serif;
+        --font-family-special: "Open Sans", sans-serif;
+
         --font-color: var(--neutral-900);
         --action-color: var(--primary-300);
         --action-color-state: var(--primary-500);
@@ -54,7 +53,6 @@ const {
         --neutral-background: var(--neutral-200);
       }
 
-      // dark color scheme overrides
       .darkmode {
         --font-color: var(--neutral-100);
         --action-color: var(--secondary-100);
@@ -64,7 +62,6 @@ const {
         --neutral-background: var(--neutral-900);
       }
 
-      // sticky footer on low content pages
       html,
       body {
         height: 100%;
