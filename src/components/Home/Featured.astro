@@ -1,0 +1,17 @@
+---
+import FeaturedSection from "./FeaturedSection.astro";
+---
+
+<section class="my-64 flex flex-col justify-between">
+  <h2 class="text-6xl font-extrabold">Featured</h2>
+  <FeaturedSection imgSrc="/accessible-components.webp" title="Accessible Components">
+    This theme provides plenty of tried and tested Accessible Astro Components. Some are native to this theme and a lot
+    of others are integrated using a <a href="https://github.com">separate package</a>. They'll get you up and running
+    in building an accessible solution for your visitors.
+  </FeaturedSection>
+  <FeaturedSection imgSrc="/wcag-compliant.webp" reverseImg={true} title="WCAG 2.1 AA Compliant">
+    Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
+    navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
+    reaching WCAG AA compliance.
+  </FeaturedSection>
+</section>

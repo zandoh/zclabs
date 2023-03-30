@@ -1,0 +1,19 @@
+---
+import Button from "./Button.astro";
+---
+
+<section class="my-24 flex items-center justify-between">
+  <aside class="flex flex-col gap-8 text-center text-6xl font-bold md:text-left lg:text-8xl">
+    <div>
+      <h1>Hello I'm</h1>
+      <h1>Zac Clark</h1>
+    </div>
+    <div class="flex gap-3 min-[500px]:flex-row">
+      <Button href="https://www.linkedin.com/in/zrclark/" iconName="logo-linkedin" text="Connect" />
+      <Button href="https://github.com/zandoh" iconName="logo-github" text="GitHub" />
+    </div>
+  </aside>
+  <aside>
+    <img class="hidden max-w-[560px] lg:block" src="/astronaut-hero-img.webp" alt="" decoding="async" loading="lazy" />
+  </aside>
+</section>
