@@ -1,31 +1,42 @@
 ---
-import DefaultLayout from '../layouts/DefaultLayout.astro'
-import Hero from '../components/Hero.astro'
-import ContentMedia from '../components/ContentMedia.astro'
+import BaseLayout from "../components/Base/BaseLayout.astro";
+import Button from "../components/Home/Button.astro";
+import FeaturedSection from "../components/Home/FeaturedSection.astro";
 ---
 
-<DefaultLayout title="Home">
-  <Hero />
-  <section class="my-64">
-    <div class="container">
-      <h2 class="-mb-32 text-6xl">Featured Projects</h2>
-      <ContentMedia imgSrc="/accessible-components.webp">
-        <h2>Accessible Components</h2>
-        <p class="text-2xl">
-          This theme provides plenty of tried and tested Accessible Astro Components. Some are native to this theme and
-          a lot of others are integrated using a <a href="https://github.com/markteekman/accessible-astro-components"
-            >separate package</a
-          >. They'll get you up and running in building an accessible solution for your visitors.
-        </p>
-      </ContentMedia>
-      <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
-        <h2>WCAG 2.1 AA Compliant</h2>
-        <p class="text-2xl">
-          Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
-          navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain
-          of reaching WCAG AA compliance.
-        </p>
-      </ContentMedia>
-    </div>
+<BaseLayout>
+  <section class="my-24 flex items-center justify-between">
+    <aside class="flex flex-col gap-8 text-center text-6xl font-bold md:text-left lg:text-8xl">
+      <div>
+        <h1>Hello I'm</h1>
+        <h1>Zac Clark</h1>
+      </div>
+      <div class="flex gap-3 min-[500px]:flex-row">
+        <Button href="https://www.linkedin.com/in/zrclark/" iconName="logo-linkedin" text="Connect" />
+        <Button href="https://github.com/zandoh" iconName="logo-github" text="GitHub" />
+      </div>
+    </aside>
+    <aside>
+      <img
+        class="hidden max-w-[560px] lg:block"
+        src="/astronaut-hero-img.webp"
+        alt=""
+        decoding="async"
+        loading="lazy"
+      />
+    </aside>
   </section>
-</DefaultLayout>
+  <section class="my-64 flex flex-col justify-between">
+    <h2 class="text-6xl font-extrabold">Featured</h2>
+    <FeaturedSection imgSrc="/accessible-components.webp" title="Accessible Components">
+      This theme provides plenty of tried and tested Accessible Astro Components. Some are native to this theme and a
+      lot of others are integrated using a <a href="https://github.com">separate package</a>. They'll get you up and
+      running in building an accessible solution for your visitors.
+    </FeaturedSection>
+    <FeaturedSection imgSrc="/wcag-compliant.webp" reverseImg={true} title="WCAG 2.1 AA Compliant">
+      Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
+      navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
+      reaching WCAG AA compliance.
+    </FeaturedSection>
+  </section>
+</BaseLayout>

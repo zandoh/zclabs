@@ -1,0 +1,24 @@
+---
+import BaseFont from "./BaseFont.astro";
+import BaseMeta from "./BaseMeta.astro";
+import Footer from "../Footer/Footer.astro";
+import Header from "../Header/Header.astro";
+---
+
+<html lang="en" dir="ltr">
+  <head>
+    <BaseMeta />
+    <BaseFont />
+  </head>
+  <body>
+    <div class="flex w-screen justify-center">
+      <div class="flex w-full max-w-[1200px] flex-col">
+        <Header />
+        <main>
+          <slot />
+        </main>
+        <Footer />
+      </div>
+    </div>
+  </body>
+</html>
