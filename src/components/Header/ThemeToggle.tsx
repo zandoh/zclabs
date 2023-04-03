@@ -1,5 +1,6 @@
 import { useKeyboard } from "@react-aria/interactions";
 import React, { ReactNode, useState } from "react";
+import { useDarkMode } from "usehooks-ts";
 
 type IconName = "moon" | "sunny";
 
@@ -25,18 +26,24 @@ const IconMap: Record<IconName, ReactNode> = {
 };
 
 const ThemeToggle = () => {
-  // TODO: Sync this with user preference from the browser
-  // TODO: Make this add the `.dark` class to the <body> for tailwind to pickup theme change
-  const [activeIcon, setActiveIcon] = useState<IconName>("moon");
+  const { isDarkMode, toggle } = useDarkMode();
   const { keyboardProps } = useKeyboard({
-    onKeyDown: (e) => e.code === "Enter" && toggleActiveIcon(),
+    onKeyDown: (e) => e.code === "Enter" && toggleTheme(),
   });
 
-  const toggleActiveIcon = () => setActiveIcon((currentIcon) => (currentIcon === "moon" ? "sunny" : "moon"));
+  const toggleTheme = () => {
+    isDarkMode ? document.body.classList.remove("dark") : document.body.classList.add("dark");
+    toggle();
+  };
 
   return (
-    <div {...keyboardProps} className="w-9 cursor-pointer select-none text-2xl" onClick={toggleActiveIcon} tabIndex={1}>
-      {IconMap[activeIcon]}
+    <div
+      {...keyboardProps}
+      className="flex w-9 cursor-pointer select-none flex-col items-center text-2xl"
+      onClick={toggleTheme}
+      tabIndex={0}
+    >
+      {IconMap[isDarkMode ? "moon" : "sunny"]}
     </div>
   );
 };
