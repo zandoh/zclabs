@@ -1,0 +1,27 @@
+<style is:global>
+  @media (prefers-reduced-motion: no-preference) {
+    .animated-text {
+      animation: move-bg 8s linear infinite;
+    }
+    @keyframes animate-bg {
+      to {
+        background-position: 400% 0;
+      }
+    }
+  }
+
+  .animated-text {
+    transition: background-color 2s linear;
+  }
+
+  .animate {
+    --color-one: hsl(15 90% 55%);
+    --color-two: hsl(40 95% 55%);
+    background: linear-gradient(90deg, var(--color-one), var(--color-two), var(--color-one)) 0 0 / 400% 100%;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: animate-bg 8s infinite linear;
+    transition: background-color 1s linear;
+  }
+</style>
