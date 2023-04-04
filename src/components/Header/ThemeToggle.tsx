@@ -1,6 +1,6 @@
 import { useKeyboard } from "@react-aria/interactions";
-import React, { ReactNode, useState } from "react";
-import { useDarkMode } from "usehooks-ts";
+import { ReactNode } from "react";
+import useDarkMode from "../../hooks/useDarkMode";
 
 type IconName = "moon" | "sunny";
 

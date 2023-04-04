@@ -1,5 +1,5 @@
-import { ReactNode, useState } from "react";
-import { useInterval } from "usehooks-ts";
+import { useState } from "react";
+import useInterval from "../../hooks/useInterval";
 import AnimatedText from "./AnimatedText";
 
 const AnimatedTextContainer = () => {
@@ -10,8 +10,6 @@ const AnimatedTextContainer = () => {
     setActiveIndex((prevIndex) => (activeIndex == childrenLength ? 1 : ++prevIndex));
     // 8s comes from the animation time
   }, 8000);
-
-  console.log({ activeIndex });
 
   return (
     <div>
