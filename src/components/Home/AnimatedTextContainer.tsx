@@ -8,8 +8,8 @@ const AnimatedTextContainer = () => {
 
   useInterval(() => {
     setActiveIndex((prevIndex) => (activeIndex == childrenLength ? 1 : ++prevIndex));
-    // 8s comes from the animation time
-  }, 8000);
+    // 4s comes from the animation time
+  }, 4000);
 
   return (
     <div>
