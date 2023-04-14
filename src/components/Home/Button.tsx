@@ -11,7 +11,7 @@ const IconMap: Record<SupportedIcon, ReactNode> = {
 
 const Button = ({ href, iconName, text }: { href: string; iconName: SupportedIcon; text: string }) => (
   <motion.a
-    className="flex items-center gap-2 rounded border border-solid px-4 py-3 text-base font-bold hover:underline focus:underline"
+    className="flex items-center gap-2 rounded border border-solid border-app-onyx fill-app-onyx px-4 py-3 text-base font-bold text-app-onyx hover:underline focus:underline dark:border-app-antiFlashWhite dark:fill-app-antiFlashWhite dark:text-app-antiFlashWhite"
     href={href}
     target="_blank"
     rel="noopener noreferrer"

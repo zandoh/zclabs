@@ -15,10 +15,8 @@ function useDarkMode(defaultValue?: boolean): UseDarkModeOutput {
   const isDarkOS = useMediaQuery(COLOR_SCHEME_QUERY);
   const [isDarkMode, setDarkMode] = useLocalStorage<boolean>("zclabs-dark-mode", defaultValue ?? isDarkOS ?? false);
 
-  // Update darkMode if os prefers changes
   useUpdateEffect(() => {
     setDarkMode(isDarkOS);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDarkOS]);
 
   return {

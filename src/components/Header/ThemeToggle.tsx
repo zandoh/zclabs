@@ -1,5 +1,5 @@
 import { useKeyboard } from "@react-aria/interactions";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import useDarkMode from "../../hooks/useDarkMode";
 
 type IconName = "moon" | "sunny";
@@ -36,10 +36,14 @@ const ThemeToggle = () => {
     toggle();
   };
 
+  useEffect(() => {
+    isDarkMode ? document.body.classList.add("dark") : document.body.classList.remove("dark");
+  }, []);
+
   return (
     <div
       {...keyboardProps}
-      className="flex w-9 cursor-pointer select-none flex-col items-center text-2xl"
+      className="flex w-9 cursor-pointer select-none flex-col items-center fill-app-onyx text-app-onyx dark:fill-app-antiFlashWhite dark:text-app-antiFlashWhite"
       onClick={toggleTheme}
       tabIndex={0}
     >
