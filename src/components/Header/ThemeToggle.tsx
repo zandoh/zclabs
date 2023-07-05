@@ -1,4 +1,5 @@
 import { useKeyboard } from "@react-aria/interactions";
+import { motion } from "framer-motion";
 import { ReactNode, useEffect } from "react";
 import useDarkMode from "../../hooks/useDarkMode";
 
@@ -41,14 +42,16 @@ const ThemeToggle = () => {
   }, []);
 
   return (
-    <div
-      {...keyboardProps}
-      className="flex w-9 cursor-pointer select-none flex-col items-center fill-app-onyx text-app-onyx dark:fill-app-antiFlashWhite dark:text-app-antiFlashWhite"
-      onClick={toggleTheme}
-      tabIndex={0}
-    >
-      {IconMap[isDarkMode ? "moon" : "sunny"]}
-    </div>
+    <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+      <div
+        {...keyboardProps}
+        className="flex w-9 cursor-pointer select-none flex-col items-center fill-app-onyx text-app-onyx dark:fill-app-antiFlashWhite dark:text-app-antiFlashWhite"
+        onClick={toggleTheme}
+        tabIndex={0}
+      >
+        {IconMap[isDarkMode ? "moon" : "sunny"]}
+      </div>
+    </motion.div>
   );
 };
 
