@@ -7,6 +7,9 @@ import { defineConfig } from "astro/config";
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
-  adapter: vercel(),
+  adapter: vercel({
+    analytics: true,
+    split: true,
+  }),
   integrations: [compress(), tailwind(), react()],
 });
