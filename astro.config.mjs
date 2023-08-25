@@ -12,4 +12,5 @@ export default defineConfig({
     split: true,
   }),
   integrations: [compress(), tailwind(), react()],
+  experimental: { assets: true },
 });
