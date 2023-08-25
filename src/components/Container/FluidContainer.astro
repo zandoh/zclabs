@@ -1,0 +1,10 @@
+---
+import ContainerChild from "./ContainerChild.astro";
+import ContainerWrapper from "./ContainerWrapper.astro";
+
+const { class: className } = Astro.props;
+---
+
+<ContainerWrapper class={className}>
+  <ContainerChild><slot /></ContainerChild>
+</ContainerWrapper>

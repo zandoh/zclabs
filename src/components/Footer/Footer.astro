@@ -1,20 +1,29 @@
 ---
+import ContainerChild from "../Container/ContainerChild.astro";
+import ContainerWrapper from "../Container/ContainerWrapper.astro";
+import NavLink from "../Utility/NavLink.astro";
+
 const currentYear = new Date().getFullYear();
 ---
 
-<footer>
-  <section class="py-8">
-    <div class="container">
-      <p class="text-app-onyx dark:text-app-antiFlashWhite">
-        &copy; {currentYear} zclabs - <span
-          >Made with ☕ and <a
-            href="https://astro.build/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:underline">🚀 astro</a
+<footer class="mt-32 flex-none">
+  <ContainerWrapper>
+    <div class="border-t border-zinc-100 pb-16 pt-10 dark:border-zinc-700/40">
+      <ContainerChild>
+        <div class="flex flex-col items-center justify-between gap-6 sm:flex-row">
+          <div
+            class="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200"
           >
-        </span>
-      </p>
+            <NavLink href="/about">About</NavLink>
+            <NavLink href="/projects">Projects</NavLink>
+            <NavLink href="/articles">Articles</NavLink>
+            <NavLink href="/uses">Uses</NavLink>
+          </div>
+          <p class="text-sm text-zinc-400 dark:text-zinc-500">
+            &copy; {currentYear} zclabs
+          </p>
+        </div>
+      </ContainerChild>
     </div>
-  </section>
+  </ContainerWrapper>
 </footer>

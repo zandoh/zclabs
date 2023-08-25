@@ -1,0 +1,9 @@
+---
+// Utility component to provide a consistent padding for the "main" container
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={["lg:max-w-5x mx-auto max-w-2xl px-4 sm:px-8 lg:px-12", className]}>
+  <slot />
+</div>

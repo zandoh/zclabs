@@ -1,0 +1,9 @@
+---
+import Article from "./Article.astro";
+
+const articles = await Astro.glob("");
+---
+
+<div class="flex flex-col gap-16">
+  {articles.map((article) => <Article key={article.slug} article={article} />)}
+</div>

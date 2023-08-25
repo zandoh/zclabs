@@ -7,26 +7,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Open Sans"', ...defaultTheme.fontFamily.sans],
-      },
-      colors: {
-        app: {
-          antiFlashWhite: "#EEEEEE",
-          gunmetal: "#222831",
-          onyx: "#393E46",
-          verdigris: "#00ADB5",
-          jade: "#04A777",
-        },
+        sans: [...defaultTheme.fontFamily.sans],
       },
     },
   },
   plugins: [],
-  overrides: [
-    {
-      files: "*.astro",
-      options: {
-        parser: "astro",
-      },
-    },
-  ],
 };
