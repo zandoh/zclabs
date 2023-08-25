@@ -3,6 +3,10 @@ import ArrowDownIcon from "../Icon/ArrowDownIcon.astro";
 import BriefcaseIcon from "../Icon/BriefcaseIcon.astro";
 import SecondaryButton from "../Utility/SecondaryButton.astro";
 import Role from "./Role.astro";
+import bryxLogo from "./logos/bryx.png";
+import cxtecLogo from "./logos/cxtec.jpeg";
+import dattoLogo from "./logos/datto.png";
+import edtLogo from "./logos/edt.png";
 
 export interface Role {
   company: string;
@@ -14,35 +18,49 @@ export interface Role {
 
 const roles: readonly Role[] = [
   {
-    company: "Planetaria",
-    title: "CEO",
-    logo: "",
-    start: "2019",
+    company: "Bryx, Inc.",
+    title: "Senior Software Engineer",
+    logo: bryxLogo,
+    start: "Oct 2022",
     end: {
       label: "Present",
       dateTime: new Date().getFullYear().toString(),
     },
   },
   {
-    company: "Airbnb",
-    title: "Product Designer",
-    logo: "",
-    start: "2014",
-    end: "2019",
+    company: "Datto, Inc.",
+    title: "Senior Software Engineer",
+    logo: dattoLogo,
+    start: "Aug 2020",
+    end: "Oct 2022",
   },
   {
-    company: "Facebook",
-    title: "iOS Software Engineer",
-    logo: "",
-    start: "2011",
-    end: "2014",
+    company: "Datto, Inc.",
+    title: "Software Engineer",
+    logo: dattoLogo,
+    start: "Mar 2020",
+    end: "Aug 2021",
   },
   {
-    company: "Starbucks",
-    title: "Shift Supervisor",
-    logo: "",
-    start: "2008",
-    end: "2011",
+    company: "EagleDream Technologies",
+    title: "Software Engineer",
+    logo: edtLogo,
+    start: "Jan 2018",
+    end: "Feb 2020",
+  },
+  {
+    company: "EagleDream Technologies",
+    title: "Software Engineer Co-Op",
+    logo: edtLogo,
+    start: "Aug 2016",
+    end: "Dec 2017",
+  },
+  {
+    company: "CXtec",
+    title: "Web Developer Co-Op",
+    logo: cxtecLogo,
+    start: "Jun 2016",
+    end: "Aug 2016",
   },
 ] as const;
 ---
