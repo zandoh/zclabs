@@ -1,6 +1,4 @@
 ---
-import { Image } from "astro:assets";
-
 const rotations = ["rotate-2", "-rotate-2", "rotate-2", "rotate-2", "-rotate-2"];
 const images = await Astro.glob("./photos/*.jpg");
 ---
@@ -15,7 +13,7 @@ const images = await Astro.glob("./photos/*.jpg");
             rotations[index % rotations.length],
           ]}
         >
-          <Image
+          <img
             class="absolute inset-0 h-full w-full object-cover"
             sizes="(min-width: 640px) 18rem, 11rem"
             src={image}
