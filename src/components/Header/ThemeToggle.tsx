@@ -33,12 +33,16 @@ export const ThemeToggle = () => {
   const { isDarkMode, toggle } = useDarkMode();
 
   const toggleTheme = () => {
-    isDarkMode ? document.body.classList.remove("dark") : document.body.classList.add("dark");
+    isDarkMode
+      ? document.getElementsByTagName("html")[0].classList.remove("dark")
+      : document.getElementsByTagName("html")[0].classList.add("dark");
     toggle();
   };
 
   useEffect(() => {
-    isDarkMode ? document.body.classList.add("dark") : document.body.classList.remove("dark");
+    isDarkMode
+      ? document.getElementsByTagName("html")[0].classList.add("dark")
+      : document.getElementsByTagName("html")[0].classList.remove("dark");
   }, []);
 
   return (
