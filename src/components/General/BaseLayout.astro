@@ -1,14 +1,22 @@
 ---
 import Footer from "../Footer/Footer.astro";
-// import Header from "../Header/Header.astro";
+import Header from "../Header/Header.astro";
 import BaseFont from "./BaseFont.astro";
 import BaseMeta from "./BaseMeta.astro";
 import ShamelessPlug from "./ShamelessPlug.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  author?: string;
+}
+
+const { title, description, author } = Astro.props;
 ---
 
 <html lang="en" class="dark h-full antialiased">
   <head>
-    <BaseMeta />
+    <BaseMeta title={title} description={description} author={author} />
     <BaseFont />
     <ShamelessPlug />
   </head>
@@ -20,8 +28,8 @@ import ShamelessPlug from "./ShamelessPlug.astro";
         </div>
       </div>
       <div class="relative flex w-full flex-col">
-        <!-- <Header /> -->
-        <main class="flex-auto"><slot /></main>
+        <Header />
+        <main class="mt-20 flex-auto"><slot /></main>
         <Footer />
       </div>
     </div>

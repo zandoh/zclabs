@@ -1,0 +1,31 @@
+---
+interface Props {
+  href: string;
+  class?: string;
+}
+
+const { href, class: className, ...rest } = Astro.props;
+const { pathname } = Astro.url;
+
+const isCurrent = pathname.includes(href);
+---
+
+<li class="list-none">
+  <a
+    {...rest}
+    href={href}
+    class:list={[
+      "pointer-events-auto relative block px-3 py-2 transition",
+      isCurrent && "text-teal-500 dark:text-teal-400",
+      !isCurrent && "hover:text-teal-500 dark:hover:text-teal-400",
+      className,
+    ]}
+  >
+    <slot />
+    {
+      isCurrent && (
+        <span class="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0" />
+      )
+    }
+  </a>
+</li>

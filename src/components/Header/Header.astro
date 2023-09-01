@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+import FluidContainer from "../Container/FluidContainer.astro";
+import HeaderItem from "./HeaderItem.astro";
+import Navigation from "./Navigation.astro";
+import { ThemeToggle } from "./ThemeToggle.tsx";
+import avatar from "./avatar.png";
+---
+
+<header class="pointer-events-none relative z-50 flex flex-none flex-col">
+  <div class="top-0 z-10 h-16 pt-6">
+    <FluidContainer class="w-full">
+      <div class="relative flex gap-4">
+        <div class="flex flex-1">
+          <div
+            class="h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10"
+          >
+            <HeaderItem href="/" class="!p-0">
+              <Image src={avatar} alt="" class="h-9 w-9 rounded-full bg-zinc-100 object-cover dark:bg-zinc-800" />
+            </HeaderItem>
+          </div>
+        </div>
+        <div class="flex flex-1 justify-end md:justify-center">
+          <Navigation class="pointer-events-auto" />
+        </div>
+        <div class="flex justify-end md:flex-1">
+          <div class="pointer-events-auto">
+            <ThemeToggle client:only="react" />
+          </div>
+        </div>
+      </div>
+    </FluidContainer>
+  </div>
+</header>

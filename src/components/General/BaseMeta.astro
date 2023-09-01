@@ -1,5 +1,13 @@
 ---
 // TODO: For now this doesn't take in props, as more pages are added it'll take in props and use those respectively
+
+interface Props {
+  title: string;
+  description: string;
+  author?: string;
+}
+
+const { title, description, author = "Zac Clark" } = Astro.props;
 ---
 
 <meta charset="utf-8" />
@@ -8,13 +16,13 @@
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-<meta name="title" content="zclabs" />
-<meta name="description" content="Zac Clark" />
-<meta name="author" content="Zac Clark" />
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="author" content={author} />
 
-<meta property="og:title" content="zclabs | Zac Clark" />
-<meta property="og:description" content="Zac Clark" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={`${Astro.site}`} />
 
-<title>zclabs | Zac Clark</title>
+<title>{title}</title>

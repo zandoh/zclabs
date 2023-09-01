@@ -2,8 +2,6 @@
 import ContainerChild from "../Container/ContainerChild.astro";
 import ContainerWrapper from "../Container/ContainerWrapper.astro";
 import NavLink from "../Utility/NavLink.astro";
-
-const currentYear = new Date().getFullYear();
 ---
 
 <footer class="mt-32 flex-none">
@@ -19,9 +17,6 @@ const currentYear = new Date().getFullYear();
             <NavLink href="/articles">Articles</NavLink>
             <NavLink href="/uses">Uses</NavLink>
           </div>
-          <p class="text-sm text-zinc-400 dark:text-zinc-500">
-            &copy; {currentYear} zclabs
-          </p>
         </div>
       </ContainerChild>
     </div>

@@ -9,7 +9,8 @@ export default defineConfig({
   output: "server",
   adapter: vercel({
     analytics: true,
-    split: true,
+    imageService: true,
+    functionPerRoute: false,
   }),
   integrations: [compress(), tailwind(), react()],
 });
