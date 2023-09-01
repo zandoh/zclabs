@@ -1,8 +1,9 @@
 ---
+import type { ImageMetadata } from "astro";
 import ArrowDownIcon from "../Icon/ArrowDownIcon.astro";
 import BriefcaseIcon from "../Icon/BriefcaseIcon.astro";
 import SecondaryButton from "../Utility/SecondaryButton.astro";
-import Role from "./Role.astro";
+import ResumeItem from "./ResumeItem.astro";
 import bryxLogo from "./logos/bryx.png";
 import cxtecLogo from "./logos/cxtec.jpeg";
 import dattoLogo from "./logos/datto.png";
@@ -11,12 +12,12 @@ import edtLogo from "./logos/edt.png";
 export interface Role {
   company: string;
   title: string;
-  logo: string;
+  logo: ImageMetadata;
   start: string | { label: string; dateTime: string };
   end: string | { label: string; dateTime: string };
 }
 
-const roles: readonly Role[] = [
+const roles: Role[] = [
   {
     company: "Bryx, Inc.",
     title: "Senior Software Engineer",
@@ -62,7 +63,7 @@ const roles: readonly Role[] = [
     start: "Jun 2016",
     end: "Aug 2016",
   },
-] as const;
+];
 ---
 
 <div class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
@@ -71,7 +72,7 @@ const roles: readonly Role[] = [
     <span class="ml-3">Work</span>
   </h2>
   <ol class="mt-6 space-y-4">
-    {roles.map((role) => <Role role={role} />)}
+    {roles.map((role) => <ResumeItem role={role} />)}
   </ol>
   {/* @TODO: Make download PDF work */}
   <SecondaryButton class="group mt-6 w-full">
