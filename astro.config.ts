@@ -1,16 +1,15 @@
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
-import vercel from "@astrojs/vercel/serverless";
+import vercelStatic from "@astrojs/vercel/static";
 import compress from "astro-compress";
 import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
-  adapter: vercel({
+  output: "static",
+  adapter: vercelStatic({
     analytics: true,
     imageService: true,
-    functionPerRoute: false,
   }),
   integrations: [compress(), tailwind(), react()],
 });

@@ -1,6 +1,7 @@
 ---
 import FluidContainer from "../components/Container/FluidContainer.astro";
 import BaseLayout from "../components/General/BaseLayout.astro";
+import Articles from "../components/Homepage/Articles.astro";
 import Photos from "../components/Homepage/Photos.astro";
 import Resume from "../components/Homepage/Resume.astro";
 import GithubIcon from "../components/Icon/GithubIcon.astro";
@@ -37,8 +38,7 @@ import TwitterIcon from "../components/Icon/TwitterIcon.astro";
   <Photos />
   <FluidContainer class="mt-24 md:mt-28">
     <div class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-      <div>@TODO: Implement Articles</div>
-      <!-- <Articles /> -->
+      <Articles />
       <div class="space-y-10 lg:pl-16 xl:pl-24">
         <Resume />
       </div>
