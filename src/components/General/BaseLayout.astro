@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import Footer from "../Footer/Footer.astro";
 import Header from "../Header/Header.astro";
 import BaseFont from "./BaseFont.astro";
@@ -19,6 +20,7 @@ const { title, description, author } = Astro.props;
     <BaseMeta title={title} description={description} author={author} />
     <BaseFont />
     <ShamelessPlug />
+    <ViewTransitions />
   </head>
   <body class="flex h-full bg-zinc-50 dark:bg-black">
     <div class="flex w-full">
