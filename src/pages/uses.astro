@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../components/General/BaseLayout.astro";
+import PageLayout from "../components/General/PageLayout.astro";
+import Usage from "../components/Uses/Usage.astro";
+import UsageSection from "../components/Uses/UsageSection.astro";
+---
+
+<BaseLayout title="Uses - Zac Clark" description="Software I use, gadgets I love, and other things I recommend.">
+  <PageLayout
+    title="Software I use, gadgets I love, and other things I recommend."
+    intro="Inspired by Wes Bos' popular uses.tech/"
+  >
+    <div class="space-y-20">
+      <UsageSection id="development" title="Development">
+        <Usage title="Stub" description="Stub" />
+      </UsageSection>
+    </div>
+  </PageLayout>
+</BaseLayout>
