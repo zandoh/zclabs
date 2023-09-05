@@ -1,0 +1,158 @@
+---
+import { Image } from "astro:assets";
+import portraitImage from "../assets/about/portrait.jpg";
+import portraitFunnyImage from "../assets/about/portrait_funny.jpg";
+import FluidContainer from "../components/Container/FluidContainer.astro";
+import BaseLayout from "../components/General/BaseLayout.astro";
+import GithubIcon from "../components/Icon/GithubIcon.astro";
+import LinkedInIcon from "../components/Icon/LinkedInIcon.astro";
+import SocialLink from "../components/Icon/SocialLink.astro";
+import TwitterIcon from "../components/Icon/TwitterIcon.astro";
+---
+
+<BaseLayout title="About - Zac Clark" description="A software engineer based in Upstate New York">
+  <FluidContainer>
+    <div class="grid grid-cols-1 gap-y-16 md:gap-y-12 lg:grid-cols-2 lg:grid-rows-[auto_1fr]">
+      <div class="lg:pl-20">
+        <div class="group relative h-[330px] max-w-xs px-2.5 md:h-[420px] lg:max-w-none">
+          <Image
+            src={portraitImage}
+            alt=""
+            sizes="(min-width: 1024px) 32rem, 20rem"
+            class="visible absolute aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover opacity-100 transition-all duration-1000 group-hover:invisible group-hover:opacity-0 dark:bg-zinc-800"
+          />
+          <Image
+            src={portraitFunnyImage}
+            alt=""
+            sizes="(min-width: 1024px) 32rem, 20rem"
+            class="invisible absolute aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover opacity-0 transition-all duration-1000 group-hover:visible group-hover:opacity-100 dark:bg-zinc-800"
+          />
+        </div>
+      </div>
+      <div class="lg:order-first lg:row-span-2">
+        <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">I'm Zac Clark.</h1>
+        <div class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+          <p>
+            I'm a web enthusiast, programmer, and avid gamer. By day, I'm coding my way through the digital realm; by
+            night, I'm conquering virtual worlds. When I'm not in front of a screen, you'll find me on the sports field
+            or enjoying a cold beer or a cup of coffee.
+          </p>
+        </div>
+        <div class="mt-6 text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-xl">
+          A few favorites:
+        </div>
+        <ul class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+          <li class="text-zinc-800 dark:text-zinc-100">Artists:</li>
+          <li>
+            <a href="https://open.spotify.com/artist/6x2LnllRG5uGarZMsD4iO8" target="_blank" rel="noopener noreferrer"
+              >Thomas Rhett</a
+            >
+          </li>
+          <li>
+            <a href="https://open.spotify.com/artist/4oUHIQIBe0LHzYfvXNW4QM" target="_blank" rel="noopener noreferrer"
+              >Morgan Wallen</a
+            >
+          </li>
+          <li>
+            <a href="https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02" target="_blank" rel="noopener noreferrer"
+              >Taylor Swift</a
+            >
+          </li>
+          <li>
+            <a href="https://open.spotify.com/artist/2RQXRUsr4IW1f3mKyKsy4B" target="_blank" rel="noopener noreferrer"
+              >Noah Kahan</a
+            >
+          </li>
+          <li>
+            <a href="https://open.spotify.com/artist/5G9kmDLg3OeUyj8KVBLzbu" target="_blank" rel="noopener noreferrer"
+              >mike.</a
+            >
+          </li>
+        </ul>
+        <ul class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+          <li class="text-zinc-800 dark:text-zinc-100">Sports Teams:</li>
+          <li>
+            <a href="https://www.nhl.com/penguins" target="_blank" rel="noopener noreferrer">Pittsburgh Penguins</a>
+          </li>
+          <li>
+            <a href="https://www.nfl.com/teams/pittsburgh-steelers" target="_blank" rel="noopener noreferrer"
+              >Pittsburgh Steelers</a
+            >
+          </li>
+          <li>
+            <a href="https://www.mlb.com/pirates" target="_blank" rel="noopener noreferrer">Pittsburgh Pirates</a>
+          </li>
+        </ul>
+        <ul class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+          <li class="text-zinc-800 dark:text-zinc-100">Podcasts:</li>
+          <li>
+            <a href="https://open.spotify.com/show/7IWzayPhHif6GhgtTQdB84" target="_blank" rel="noopener noreferrer"
+              >Spittin' Chiclets</a
+            >
+          </li>
+          <li>
+            <a href="https://open.spotify.com/show/4kYCRYJ3yK5DQbP5tbfZby" target="_blank" rel="noopener noreferrer"
+              >Syntax - Tasty Web Development Treats</a
+            >
+          </li>
+          <li>
+            <a href="https://open.spotify.com/show/2fDfleyfxIZJRhojHDHahy" target="_blank" rel="noopener noreferrer"
+              >Footbahlin with Ben Roethlisberger</a
+            >
+          </li>
+          <li>
+            <a href="https://open.spotify.com/show/6kAsbP8pxwaU2kPibKTuHE" target="_blank" rel="noopener noreferrer"
+              >Armchair Expert with Dax Shepard</a
+            >
+          </li>
+        </ul>
+        <ul class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+          <li class="text-zinc-800 dark:text-zinc-100">TV Shows:</li>
+          <li>
+            <a href="https://www.imdb.com/title/tt0903747" target="_blank" rel="noopener noreferrer">Breaking Bad</a>
+          </li>
+          <li>
+            <a href="https://www.imdb.com/title/tt2442560" target="_blank" rel="noopener noreferrer">Peaky Blinders</a>
+          </li>
+          <li>
+            <a href="https://www.imdb.com/title/tt2575988" target="_blank" rel="noopener noreferrer">Silicon Valley</a>
+          </li>
+          <li>
+            <a href="https://www.imdb.com/title/tt0397442" target="_blank" rel="noopener noreferrer">Gossip Girl</a>
+          </li>
+          <li>
+            <a href="https://www.imdb.com/title/tt2891574" target="_blank" rel="noopener noreferrer">Ballers</a>
+          </li>
+        </ul>
+      </div>
+      <div class="lg:pl-20">
+        <ul role="list" class="flex flex-col gap-4">
+          <div
+            class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+          >
+            <SocialLink href="https://www.linkedin.com/in/zrclark/" aria-label="Connect on LinkedIn">
+              <LinkedInIcon class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
+            </SocialLink>
+            <span class="ml-4">Connect on LinkedIn</span>
+          </div>
+          <div
+            class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+          >
+            <SocialLink href="https://github.com/zandoh" aria-label="Check out my GitHub">
+              <GithubIcon class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
+            </SocialLink>
+            <span class="ml-4">Check out my GitHub</span>
+          </div>
+          <div
+            class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+          >
+            <SocialLink href="https://twitter.com/zandoh_" aria-label="Follow on Twitter">
+              <TwitterIcon class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
+            </SocialLink>
+            <span class="ml-4">Follow on Twitter</span>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </FluidContainer>
+</BaseLayout>
