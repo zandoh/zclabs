@@ -12,13 +12,13 @@ import avatar from "./avatar.png";
     <FluidContainer class="w-full">
       <div class="relative flex gap-4">
         <div class="flex flex-1">
-          <div
+          <ul
             class="h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10"
           >
-            <HeaderItem href="/" class="!p-0">
+            <HeaderItem href="/" class="!p-0" aria-label="Home">
               <Image src={avatar} alt="" class="h-9 w-9 rounded-full bg-zinc-100 object-cover dark:bg-zinc-800" />
             </HeaderItem>
-          </div>
+          </ul>
         </div>
         <div class="flex flex-1 justify-end md:justify-center">
           <Navigation class="pointer-events-auto" />
