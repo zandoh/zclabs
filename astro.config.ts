@@ -8,8 +8,10 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   output: "static",
   adapter: vercelStatic({
-    analytics: true,
+    webAnalytics: {
+      enabled: true,
+    },
     imageService: true,
   }),
-  integrations: [compress(), tailwind(), react()],
+  integrations: [tailwind(), react(), compress()],
 });
