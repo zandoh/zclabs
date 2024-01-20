@@ -6,10 +6,18 @@ import UsageSection from "../components/Uses/UsageSection.astro";
 ---
 
 <BaseLayout title="Uses - Zac Clark" description="Software I use, gadgets I love, and other things I recommend.">
-  <PageLayout
-    title="Software I use, gadgets I love, and other things I recommend."
-    intro="Inspired by Wes Bos' popular uses.tech"
-  >
+  <PageLayout>
+    <Fragment slot="title">{"Software I use, gadgets I love, and other things I recommend."}</Fragment>
+    <Fragment slot="intro">
+      Inspired by <a
+        class="cursor-pointer underline"
+        href="https://wesbos.com/uses"
+        rel="noopener noreferrer"
+        target="_blank">Wes Bos</a
+      >' popular <a class="cursor-pointer underline" href="https://uses.tech/" rel="noopener noreferrer" target="_blank"
+        >uses.tech</a
+      >
+    </Fragment>
     <div class="space-y-20">
       <UsageSection id="software" title="Software">
         <Usage title="VS Code" href="https://code.visualstudio.com/" description="My editor of choice" />
