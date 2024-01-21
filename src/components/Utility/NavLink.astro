@@ -1,11 +1,12 @@
 ---
 interface Props {
   href: string;
+  className: string;
 }
 
-const { href } = Astro.props;
+const { href, className } = Astro.props;
 ---
 
-<a href={href} class="transition hover:text-teal-500 dark:hover:text-teal-400">
+<a href={href} class:list={["transition hover:text-teal-500 dark:hover:text-teal-400", className]}>
   <slot />
 </a>

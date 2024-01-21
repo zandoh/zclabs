@@ -1,17 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
-import bryxLogo from "./logos/bryx.png";
-import cxtecLogo from "./logos/cxtec.jpeg";
-import dattoLogo from "./logos/datto.png";
-import edtLogo from "./logos/edt.png";
-
-const logoMap: Record<CollectionEntry<"roles">["data"][number]["logo"], ImageMetadata> = {
-  bryxLogo,
-  dattoLogo,
-  cxtecLogo,
-  edtLogo,
-};
 
 interface Props {
   role: CollectionEntry<"roles">["data"][number];
@@ -36,7 +25,14 @@ const formattedEndDate = role.current ? "Present" : formatUTCDateTime(role.end);
   <div
     class="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
   >
-    <Image src={logoMap[role.logo]} alt="" class="h-7 w-7 rounded-full object-scale-down" />
+    <Image
+      src={role.logo.image.src}
+      width={role.logo.image.width}
+      height={role.logo.image.height}
+      format={role.logo.image.format}
+      alt=""
+      class="h-7 w-7 rounded-full object-scale-down"
+    />
   </div>
   <dl class="flex flex-auto flex-wrap gap-x-2">
     <dt class="sr-only">Company</dt>

@@ -2,7 +2,7 @@
   {
     "company": "Bryx, Inc.",
     "title": "Senior Software Engineer",
-    "logo": "bryxLogo",
+    "logo": { "image": "/src/components/Homepage/logos/bryx.png" },
     "start": "2022-10-01T00:00:00Z",
     "end": null,
     "current": true
@@ -10,7 +10,7 @@
   {
     "company": "Datto, Inc.",
     "title": "Senior Software Engineer",
-    "logo": "dattoLogo",
+    "logo": { "image": "/src/components/Homepage/logos/datto.png" },
     "start": "2021-08-01T00:00:00Z",
     "end": "2022-10-01T00:00:00Z",
     "current": false
@@ -18,7 +18,7 @@
   {
     "company": "Datto, Inc.",
     "title": "Software Engineer",
-    "logo": "dattoLogo",
+    "logo": { "image": "/src/components/Homepage/logos/datto.png" },
     "start": "2020-03-01T00:00:00Z",
     "end": "2021-08-01T00:00:00Z",
     "current": false
@@ -26,7 +26,7 @@
   {
     "company": "EagleDream Technologies",
     "title": "Software Engineer",
-    "logo": "edtLogo",
+    "logo": { "image": "/src/components/Homepage/logos/edt.png" },
     "start": "2018-01-01T00:00:00Z",
     "end": "2020-02-01T00:00:00Z",
     "current": false
@@ -34,7 +34,7 @@
   {
     "company": "EagleDream Technologies",
     "title": "Software Engineer Co-Op",
-    "logo": "edtLogo",
+    "logo": { "image": "/src/components/Homepage/logos/edt.png" },
     "start": "2016-08-01T00:00:00Z",
     "end": "2017-12-01T00:00:00Z",
     "current": false
@@ -42,7 +42,7 @@
   {
     "company": "CXtec",
     "title": "Web Developer Co-Op",
-    "logo": "cxtecLogo",
+    "logo": { "image": "/src/components/Homepage/logos/cxtec.jpeg" },
     "start": "2016-06-01T00:00:00Z",
     "end": "2016-08-01T00:00:00Z",
     "current": false

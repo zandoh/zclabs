@@ -2,11 +2,16 @@
 import { getCollection } from "astro:content";
 import FluidContainer from "../components/Container/FluidContainer.astro";
 import BaseLayout from "../components/General/BaseLayout.astro";
+import Activity from "../components/Homepage/Activity.astro";
+import FeaturedProject from "../components/Homepage/FeaturedProject.astro";
 import Photos from "../components/Homepage/Photos.astro";
 import Resume from "../components/Homepage/Resume.astro";
 import SocialLink from "../components/Icon/SocialLink.astro";
 
 const socials = await getCollection("socials");
+const featuredProjects = await getCollection("projects", (collection) =>
+  collection.data.find((project) => project.featured === true),
+);
 ---
 
 {/* @TODO: Everywhere, image optimization */}
@@ -30,7 +35,10 @@ const socials = await getCollection("socials");
   <Photos />
   <FluidContainer class="mt-24 md:mt-28">
     <div class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-      <div>TODO: GitHub activity here?</div>
+      <div class="flex flex-col gap-16">
+        <Activity />
+        <FeaturedProject project={featuredProjects[0].data[0]} />
+      </div>
       <div class="space-y-10 lg:pl-16 xl:pl-24">
         <Resume />
       </div>

@@ -1,0 +1,16 @@
+---
+import { Octokit } from "@octokit/core";
+
+const token = import.meta.env.GITHUB_PAT;
+const octokit = new Octokit({ auth: token });
+
+const response = await octokit.request("", {
+  username: "zandoh",
+});
+---
+
+{/** TODO */}
+<article>
+  <h2 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Recent Activity</h2>
+  <div>Some sort of monthly contribution chart thing?</div>
+</article>
