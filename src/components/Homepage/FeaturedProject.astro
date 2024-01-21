@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import ChevronRightIcon from "../Icon/ChevronRightIcon.astro";
+import chevronRightSvg from "../../assets/general/chevron_right.svg?raw";
 import NavLink from "../Utility/NavLink.astro";
 
 interface Props {
@@ -30,7 +30,7 @@ const { project } = Astro.props;
     </div>
     <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">{project.description}</p>
     <div aria-hidden="true" class="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500">
-      Visit Project <ChevronRightIcon class="ml-1 h-4 w-4 stroke-current" />
+      Visit Project <span class="ml-1 h-4 w-4 stroke-current"><Fragment set:html={chevronRightSvg} /></span>
     </div>
   </article>
   <NavLink href="/projects" className={"w-fit text-zinc-600 dark:text-zinc-400"}>View All Projects</NavLink>

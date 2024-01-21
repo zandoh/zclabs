@@ -1,5 +1,6 @@
 ---
 import { Octokit } from "@octokit/core";
+import { match } from "ts-pattern";
 import { formatUTCDateTimeMonthDay } from "../Utility/date";
 
 const token = import.meta.env.GITHUB_PAT;
@@ -24,23 +25,33 @@ console.log(response.data);
           <li>
             <div class="relative pb-8">
               {activityIndex !== response.data.length - 1 ? (
-                <span class="absolute left-4 top-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true" />
+                <span
+                  class="absolute left-4 top-4 -ml-px h-full w-0.5 bg-gray-200 dark:bg-zinc-300/20"
+                  aria-hidden="true"
+                />
               ) : null}
               <div class="relative flex space-x-3">
                 <div>
-                  <span class="flex h-8 w-8 items-center justify-center rounded-full ring-8 ring-white">
+                  <span class="flex h-8 w-8 items-center justify-center rounded-full ring-8 ring-white dark:ring-zinc-900">
+                    {match(activity.type)
+                      .with("PushEvent", () => <div>Push Event</div>)
+                      .with("CreateEvent", () => <div>Create Event</div>)
+                      .with("WatchEvent", () => <div>Watch Event</div>)
+                      .otherwise(() => (
+                        <div>Some other event</div>
+                      ))}
                     {/* <event.icon class="h-5 w-5 text-white" aria-hidden="true" /> */}
                   </span>
                 </div>
                 <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                   <div>
-                    <p class="text-sm text-gray-500">
-                      <a href={""} class="font-medium text-gray-900">
+                    <p class="text-sm text-zinc-500 dark:text-zinc-400">
+                      <a href={""} class="font-medium text-zinc-900 dark:text-zinc-100">
                         {activity.type}
                       </a>
                     </p>
                   </div>
-                  <div class="whitespace-nowrap text-right text-sm text-gray-500">
+                  <div class="whitespace-nowrap text-right text-sm text-zinc-500 dark:text-zinc-400">
                     <time datetime={activity.created_at}>{formatUTCDateTimeMonthDay(activity.created_at)}</time>
                   </div>
                 </div>

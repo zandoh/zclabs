@@ -1,9 +1,9 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { match } from "ts-pattern";
-import GithubIcon from "../Icon/GithubIcon.astro";
-import LinkedInIcon from "../Icon/LinkedInIcon.astro";
-import TwitterIcon from "../Icon/TwitterIcon.astro";
+import githubSvg from "../../assets/social/github.svg?raw";
+import linkedinSvg from "../../assets/social/linkedin.svg?raw";
+import twitterSvg from "../../assets/social/twitter.svg?raw";
 
 interface Props {
   social: CollectionEntry<"socials">["data"];
@@ -24,9 +24,9 @@ const { social } = Astro.props;
   >
     {
       match(social.iconName)
-        .with("github", () => <GithubIcon />)
-        .with("linkedin", () => <LinkedInIcon />)
-        .with("twitter", () => <TwitterIcon />)
+        .with("github", () => <Fragment set:html={githubSvg} />)
+        .with("linkedin", () => <Fragment set:html={linkedinSvg} />)
+        .with("twitter", () => <Fragment set:html={twitterSvg} />)
         .exhaustive()
     }
   </div>
