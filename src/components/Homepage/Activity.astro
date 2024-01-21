@@ -1,16 +1,54 @@
 ---
 import { Octokit } from "@octokit/core";
+import { formatUTCDateTimeMonthDay } from "../Utility/date";
 
 const token = import.meta.env.GITHUB_PAT;
 const octokit = new Octokit({ auth: token });
 
-const response = await octokit.request("", {
+const response = await octokit.request("GET /users/{username}/events/public", {
   username: "zandoh",
+  per_page: 5,
+  page: 0,
 });
+
+console.log(response.data);
 ---
 
 {/** TODO */}
-<article>
-  <h2 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Recent Activity</h2>
-  <div>Some sort of monthly contribution chart thing?</div>
-</article>
+<div>
+  <h2 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Recent Github Activity</h2>
+  <div class="flow-root">
+    <ul role="list" class="-mb-8">
+      {
+        response.data.map((activity, activityIndex) => (
+          <li>
+            <div class="relative pb-8">
+              {activityIndex !== response.data.length - 1 ? (
+                <span class="absolute left-4 top-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true" />
+              ) : null}
+              <div class="relative flex space-x-3">
+                <div>
+                  <span class="flex h-8 w-8 items-center justify-center rounded-full ring-8 ring-white">
+                    {/* <event.icon class="h-5 w-5 text-white" aria-hidden="true" /> */}
+                  </span>
+                </div>
+                <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
+                  <div>
+                    <p class="text-sm text-gray-500">
+                      <a href={""} class="font-medium text-gray-900">
+                        {activity.type}
+                      </a>
+                    </p>
+                  </div>
+                  <div class="whitespace-nowrap text-right text-sm text-gray-500">
+                    <time datetime={activity.created_at}>{formatUTCDateTimeMonthDay(activity.created_at)}</time>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import { formatUTCDateTimeMonthYear } from "../Utility/date";
 
 interface Props {
   role: CollectionEntry<"roles">["data"][number];
@@ -8,17 +9,8 @@ interface Props {
 
 const { role } = Astro.props;
 
-const formatUTCDateTime = (utcDateTime) => {
-  const date = new Date(utcDateTime);
-  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-  const formattedDate = `${monthNames[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
-
-  return formattedDate;
-};
-
-const formattedStartDate = formatUTCDateTime(role.start);
-const formattedEndDate = role.current ? "Present" : formatUTCDateTime(role.end);
+const formattedStartDate = formatUTCDateTimeMonthYear(role.start);
+const formattedEndDate = role.current ? "Present" : formatUTCDateTimeMonthYear(role.end);
 ---
 
 <li class="flex gap-4">

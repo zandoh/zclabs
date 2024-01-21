@@ -9,7 +9,7 @@ const projects = defineCollection({
         description: z.string(),
         logo: z.object({ image: image() }),
         link: z.object({
-          href: z.string(),
+          href: z.string().url(),
           label: z.string(),
         }),
         featured: z.boolean(),
@@ -25,7 +25,7 @@ const favorites = defineCollection({
       z.object({
         type: z.union([z.literal("artist"), z.literal("team"), z.literal("podcast"), z.literal("tv")]),
         name: z.string(),
-        link: z.string(),
+        link: z.string().url(),
       }),
     ),
   }),
@@ -36,7 +36,7 @@ const socials = defineCollection({
   schema: z.object({
     iconName: z.union([z.literal("linkedin"), z.literal("github"), z.literal("twitter")]),
     label: z.string(),
-    link: z.string(),
+    link: z.string().url(),
   }),
 });
 
@@ -47,7 +47,7 @@ const uses = defineCollection({
     data: z.array(
       z.object({
         name: z.string(),
-        link: z.string(),
+        link: z.string().url(),
         description: z.string(),
       }),
     ),
@@ -71,6 +71,7 @@ const roles = defineCollection({
       z.object({
         company: z.string(),
         title: z.string(),
+        link: z.string().url(),
         logo: z.object({ image: image() }),
         start: z.string().datetime(),
         end: z.string().datetime().nullable(),

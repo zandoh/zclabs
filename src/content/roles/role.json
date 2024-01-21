@@ -2,7 +2,8 @@
   {
     "company": "Bryx, Inc.",
     "title": "Senior Software Engineer",
-    "logo": { "image": "/src/components/Homepage/logos/bryx.png" },
+    "link": "https://www.linkedin.com/company/bryxinc/",
+    "logo": { "image": "/src/assets/home/logos/bryx.png" },
     "start": "2022-10-01T00:00:00Z",
     "end": null,
     "current": true
@@ -10,7 +11,8 @@
   {
     "company": "Datto, Inc.",
     "title": "Senior Software Engineer",
-    "logo": { "image": "/src/components/Homepage/logos/datto.png" },
+    "link": "https://www.linkedin.com/company/datto-inc/",
+    "logo": { "image": "/src/assets/home/logos/datto.png" },
     "start": "2021-08-01T00:00:00Z",
     "end": "2022-10-01T00:00:00Z",
     "current": false
@@ -18,7 +20,8 @@
   {
     "company": "Datto, Inc.",
     "title": "Software Engineer",
-    "logo": { "image": "/src/components/Homepage/logos/datto.png" },
+    "link": "https://www.linkedin.com/company/datto-inc/",
+    "logo": { "image": "/src/assets/home/logos/datto.png" },
     "start": "2020-03-01T00:00:00Z",
     "end": "2021-08-01T00:00:00Z",
     "current": false
@@ -26,7 +29,8 @@
   {
     "company": "EagleDream Technologies",
     "title": "Software Engineer",
-    "logo": { "image": "/src/components/Homepage/logos/edt.png" },
+    "link": "https://www.linkedin.com/pulse/embarking-new-chapter-eagledream-join-pwc-robert-bob-moore/",
+    "logo": { "image": "/src/assets/home/logos/edt.png" },
     "start": "2018-01-01T00:00:00Z",
     "end": "2020-02-01T00:00:00Z",
     "current": false
@@ -34,7 +38,8 @@
   {
     "company": "EagleDream Technologies",
     "title": "Software Engineer Co-Op",
-    "logo": { "image": "/src/components/Homepage/logos/edt.png" },
+    "link": "https://www.linkedin.com/pulse/embarking-new-chapter-eagledream-join-pwc-robert-bob-moore/",
+    "logo": { "image": "/src/assets/home/logos/edt.png" },
     "start": "2016-08-01T00:00:00Z",
     "end": "2017-12-01T00:00:00Z",
     "current": false
@@ -42,7 +47,8 @@
   {
     "company": "CXtec",
     "title": "Web Developer Co-Op",
-    "logo": { "image": "/src/components/Homepage/logos/cxtec.jpeg" },
+    "link": "https://www.linkedin.com/company/cxtec/",
+    "logo": { "image": "/src/assets/home/logos/cxtec.jpeg" },
     "start": "2016-06-01T00:00:00Z",
     "end": "2016-08-01T00:00:00Z",
     "current": false

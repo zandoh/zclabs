@@ -2,14 +2,14 @@
   {
     "name": "Test 1",
     "description": "Description Description Description Description Description",
-    "link": { "href": "//github.com", "label": "github.com" },
+    "link": { "href": "https://github.com", "label": "github.com" },
     "logo": { "image": "/src/assets/projects/coffee.png" },
     "featured": true
   },
   {
     "name": "Test 2",
     "description": "Description Description Description Description Description",
-    "link": { "href": "//github.com", "label": "github.com" },
+    "link": { "href": "https://github.com", "label": "github.com" },
     "logo": { "image": "/src/assets/projects/monitor.png" },
     "featured": true
   }
