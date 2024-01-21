@@ -1,7 +1,10 @@
 ---
+import { getCollection } from "astro:content";
 import ContainerChild from "../Container/ContainerChild.astro";
 import ContainerWrapper from "../Container/ContainerWrapper.astro";
 import NavLink from "../Utility/NavLink.astro";
+
+const routes = await getCollection("navigation");
 ---
 
 <footer class="mt-32 flex-none">
@@ -12,10 +15,7 @@ import NavLink from "../Utility/NavLink.astro";
           <div
             class="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200"
           >
-            <NavLink href="/about">About</NavLink>
-            <NavLink href="/projects">Projects</NavLink>
-            <NavLink href="/articles">Articles</NavLink>
-            <NavLink href="/uses">Uses</NavLink>
+            {routes.map(({ data }) => data.map(({ route, title }) => <NavLink href={route}>{title}</NavLink>))}
           </div>
         </div>
       </ContainerChild>

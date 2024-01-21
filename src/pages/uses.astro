@@ -1,8 +1,11 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../components/General/BaseLayout.astro";
 import PageLayout from "../components/General/PageLayout.astro";
 import Usage from "../components/Uses/Usage.astro";
 import UsageSection from "../components/Uses/UsageSection.astro";
+
+const usages = await getCollection("uses");
 ---
 
 <BaseLayout title="Uses - Zac Clark" description="Software I use, gadgets I love, and other things I recommend.">
@@ -19,47 +22,15 @@ import UsageSection from "../components/Uses/UsageSection.astro";
       >
     </Fragment>
     <div class="space-y-20">
-      <UsageSection id="software" title="Software">
-        <Usage title="VS Code" href="https://code.visualstudio.com/" description="My editor of choice" />
-        <Usage title="Warp" href="https://www.warp.dev/" description="My terminal of choice" />
-        <Usage title="React" href="https://react.dev/" description="My UI library of choice" />
-        <Usage title="TypeScript" href="https://www.typescriptlang.org/" description="My language of choice" />
-        <Usage title="Remix" href="https://remix.run/" description="My full-stack framework of choice" />
-        <Usage title="Arc" href="https://arc.net/" description="My browser of choice" />
-        <Usage title="Zoom" href="https://zoom.us/" description="My video conferencing tool of choice" />
-        <Usage title="Slack" href="https://slack.com/" description="My chat tool of choice" />
-      </UsageSection>
-      <UsageSection id="gear" title="Gear">
-        <Usage
-          title="MacBook Pro 16 (M1 Pro)"
-          href="https://www.apple.com/shop/buy-mac/macbook-pro/16-inch"
-          description="My personal laptop"
-        />
-        <Usage title="iPhone 14 Pro" href="https://www.apple.com/shop/buy-iphone" description="My phone of choice" />
-        <Usage
-          title="AirPods Pro (2nd generation)"
-          href="https://www.apple.com/airpods-pro/?campaign=true"
-          description="My earbuds of choice"
-        />
-        <Usage
-          title="Steelseries Arctis Pro Wireless"
-          href="https://steelseries.com/gaming-headsets/arctis-pro-wireless?color=black"
-          description="My headphones of choice"
-        />
-        <Usage
-          title="Secretlab Titan (2020)"
-          href="https://secretlab.co/products/titan-evo-2022-series?sku=R22SW-CnC"
-          description="My office chair of choice"
-        />
-        <Usage
-          title="Uplift Standing Desk"
-          href="https://www.upliftdesk.com/standing-desks/"
-          description="My desk of choice"
-        />
-      </UsageSection>
-      <UsageSection id="services" title="Services">
-        <Usage title="GitHub" href="https://github.com/" description="My code host of choice" />
-      </UsageSection>
+      {
+        usages.map(({ data: { section, data: usages } }) => (
+          <UsageSection id={section} title={section}>
+            {usages.map((usage) => (
+              <Usage usage={usage} />
+            ))}
+          </UsageSection>
+        ))
+      }
     </div>
   </PageLayout>
 </BaseLayout>

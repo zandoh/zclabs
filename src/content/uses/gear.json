@@ -1,0 +1,35 @@
+{
+  "section": "Gear",
+  "data": [
+    {
+      "name": "MacBook Pro 16 (M1 Pro)",
+      "link": "https://www.apple.com/shop/buy-mac/macbook-pro/16-inch",
+      "description": "My personal laptop"
+    },
+    {
+      "name": "iPhone 14 Pro",
+      "link": "https://www.apple.com/shop/buy-iphone",
+      "description": "My phone of choice"
+    },
+    {
+      "name": "AirPods Pro (2nd generation)",
+      "link": "https://www.apple.com/airpods-pro/?campaign=true",
+      "description": "My earbuds of choice"
+    },
+    {
+      "name": "Steelseries Arctis Pro Wireless",
+      "link": "https://steelseries.com/gaming-headsets/arctis-pro-wireless?color=black",
+      "description": "My headphones of choice"
+    },
+    {
+      "name": "Secretlab Titan (2020)",
+      "link": "https://secretlab.co/products/titan-evo-2022-series?sku=R22SW-CnC",
+      "description": "My office chair of choice"
+    },
+    {
+      "name": "Uplift Standing Desk",
+      "link": "https://www.upliftdesk.com/standing-desks/",
+      "description": "My desk of choice"
+    }
+  ]
+}

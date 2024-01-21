@@ -1,0 +1,45 @@
+{
+  "section": "Software",
+  "data": [
+    {
+      "name": "VS Code",
+      "link": "https://code.visualstudio.com/",
+      "description": "My editor of choice"
+    },
+    {
+      "name": "Warp",
+      "link": "https://www.warp.dev/",
+      "description": "My terminal of choice"
+    },
+    {
+      "name": "React",
+      "link": "https://react.dev/",
+      "description": "My UI library of choice"
+    },
+    {
+      "name": "TypeScript",
+      "link": "https://www.typescriptlang.org/",
+      "description": "My language of choice"
+    },
+    {
+      "name": "Remix",
+      "link": "https://remix.run/",
+      "description": "My full-stack framework of choice"
+    },
+    {
+      "name": "Arc",
+      "link": "https://arc.net/",
+      "description": "My browser of choice"
+    },
+    {
+      "name": "Zoom",
+      "link": "https://zoom.us/",
+      "description": "My video conferencing tool of choice"
+    },
+    {
+      "name": "Slack",
+      "link": "https://slack.com/",
+      "description": "My chat tool of choice"
+    }
+  ]
+}

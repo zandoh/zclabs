@@ -1,0 +1,25 @@
+{
+  "heading": "Podcasts",
+  "data": [
+    {
+      "type": "podcast",
+      "name": "Spittin' Chiclets",
+      "link": "https://open.spotify.com/show/7IWzayPhHif6GhgtTQdB84"
+    },
+    {
+      "type": "podcast",
+      "name": "Syntax - Tasty Web Development Treats",
+      "link": "https://open.spotify.com/show/4kYCRYJ3yK5DQbP5tbfZby"
+    },
+    {
+      "type": "podcast",
+      "name": "Footbahlin with Ben Roethlisberger",
+      "link": "https://open.spotify.com/show/2fDfleyfxIZJRhojHDHahy"
+    },
+    {
+      "type": "podcast",
+      "name": "Armchair Expert with Dax Shepard",
+      "link": "https://open.spotify.com/show/6kAsbP8pxwaU2kPibKTuHE"
+    }
+  ]
+}

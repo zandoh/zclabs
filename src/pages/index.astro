@@ -1,13 +1,12 @@
 ---
+import { getCollection } from "astro:content";
 import FluidContainer from "../components/Container/FluidContainer.astro";
 import BaseLayout from "../components/General/BaseLayout.astro";
-import Articles from "../components/Homepage/Articles.astro";
 import Photos from "../components/Homepage/Photos.astro";
 import Resume from "../components/Homepage/Resume.astro";
-import GithubIcon from "../components/Icon/GithubIcon.astro";
-import LinkedInIcon from "../components/Icon/LinkedInIcon.astro";
 import SocialLink from "../components/Icon/SocialLink.astro";
-import TwitterIcon from "../components/Icon/TwitterIcon.astro";
+
+const socials = await getCollection("socials");
 ---
 
 {/* @TODO: Everywhere, image optimization */}
@@ -24,23 +23,14 @@ import TwitterIcon from "../components/Icon/TwitterIcon.astro";
         and creativity to design and develop software that is efficient, user-friendly, and visually appealing.
       </p>
       <div class="mt-6 flex gap-6">
-        <SocialLink href="https://www.linkedin.com/in/zrclark/" aria-label="Connect on LinkedIn">
-          <LinkedInIcon />
-        </SocialLink>
-        <SocialLink href="https://github.com/zandoh" aria-label="Check out my GitHub">
-          <GithubIcon />
-        </SocialLink>
-        <SocialLink href="https://twitter.com/zandoh_" aria-label="Follow on Twitter">
-          <TwitterIcon />
-        </SocialLink>
-        {/* @TODO: RSS Feed? */}
+        {socials.map(({ data }) => <SocialLink social={data} />)}
       </div>
     </div>
   </FluidContainer>
   <Photos />
   <FluidContainer class="mt-24 md:mt-28">
     <div class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-      <Articles />
+      <div>TODO: GitHub activity here?</div>
       <div class="space-y-10 lg:pl-16 xl:pl-24">
         <Resume />
       </div>

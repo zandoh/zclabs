@@ -1,16 +1,33 @@
 ---
+import type { CollectionEntry } from "astro:content";
+import { match } from "ts-pattern";
+import GithubIcon from "../Icon/GithubIcon.astro";
+import LinkedInIcon from "../Icon/LinkedInIcon.astro";
+import TwitterIcon from "../Icon/TwitterIcon.astro";
+
 interface Props {
-  href: string;
-  "aria-label"?: string;
+  social: CollectionEntry<"socials">["data"];
 }
 
-const { href, "aria-label": label } = Astro.props;
+const { social } = Astro.props;
 ---
 
-<a href={href} aria-label={label} target="_blank" rel="noopener noreferrer" class="group -m-1 cursor-pointer p-1">
+<a
+  href={social.link}
+  aria-label={social.label}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group -m-1 cursor-pointer p-1"
+>
   <div
     class="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300"
   >
-    <slot />
+    {
+      match(social.iconName)
+        .with("github", () => <GithubIcon />)
+        .with("linkedin", () => <LinkedInIcon />)
+        .with("twitter", () => <TwitterIcon />)
+        .exhaustive()
+    }
   </div>
 </a>

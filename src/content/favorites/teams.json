@@ -1,0 +1,20 @@
+{
+  "heading": "Teams",
+  "data": [
+    {
+      "type": "team",
+      "name": "Pittsburgh Penguins",
+      "link": "https://www.nhl.com/penguins"
+    },
+    {
+      "type": "team",
+      "name": "Pittsburgh Steelers",
+      "link": "https://www.nfl.com/teams/pittsburgh-steelers"
+    },
+    {
+      "type": "team",
+      "name": "Pittsburgh Pirates",
+      "link": "https://www.mlb.com/pirates"
+    }
+  ]
+}
