@@ -14,4 +14,5 @@ export default defineConfig({
     imageService: true,
   }),
   integrations: [tailwind(), react(), compress()],
+  publicDir: "./public",
 });

@@ -60,10 +60,25 @@ const navigation = defineCollection({
   ),
 });
 
+const roles = defineCollection({
+  type: "data",
+  schema: z.array(
+    z.object({
+      company: z.string(),
+      title: z.string(),
+      logo: z.union([z.literal("bryxLogo"), z.literal("dattoLogo"), z.literal("edtLogo"), z.literal("cxtecLogo")]),
+      start: z.string().datetime(),
+      end: z.string().datetime().nullable(),
+      current: z.boolean(),
+    }),
+  ),
+});
+
 export const collections = {
   projects,
   favorites,
   socials,
   uses,
   navigation,
+  roles,
 };
