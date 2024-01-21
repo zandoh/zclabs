@@ -79,6 +79,11 @@ const roles = defineCollection({
     ),
 });
 
+const heroImages = defineCollection({
+  type: "data",
+  schema: ({ image }) => z.array(z.object({ image: image() })),
+});
+
 export const collections = {
   projects,
   favorites,
@@ -86,4 +91,5 @@ export const collections = {
   uses,
   navigation,
   roles,
+  heroImages,
 };

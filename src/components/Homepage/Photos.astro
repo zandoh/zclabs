@@ -1,27 +1,33 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 const rotations = ["rotate-2", "-rotate-2", "rotate-2", "rotate-2", "-rotate-2"];
-const images = await Astro.glob("./photos/*.jpg");
+const collection = await getCollection("heroImages");
 ---
 
 <div class="mt-16 sm:mt-20">
   <div class="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
     {
-      images.map(({ default: image }, index) => (
-        <div
-          class:list={[
-            "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl",
-            rotations[index % rotations.length],
-          ]}
-        >
-          <Image
-            class="absolute inset-0 h-full w-full object-cover"
-            sizes="(min-width: 640px) 18rem, 11rem"
-            src={image}
-            alt=""
-          />
-        </div>
-      ))
+      collection.map(({ data }) =>
+        data.map(({ image }, index) => (
+          <div
+            class:list={[
+              "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl",
+              rotations[index % rotations.length],
+            ]}
+          >
+            <Image
+              class="absolute inset-0 h-full w-full object-cover"
+              sizes="(min-width: 640px) 18rem, 11rem"
+              src={image.src}
+              width={image.width}
+              height={image.height}
+              format={image.format}
+              alt=""
+            />
+          </div>
+        )),
+      )
     }
   </div>
 </div>
