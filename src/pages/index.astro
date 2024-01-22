@@ -35,7 +35,8 @@ const featuredProjects = await getCollection("projects", (collection) =>
   <Photos />
   <FluidContainer class="mt-24 md:mt-28">
     <div class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-      <div class="flex flex-col gap-16">
+      <div class="flex flex-col gap-8">
+        {/* TODO: Flesh out projects. First featured project will be this website. */}
         <FeaturedProject project={featuredProjects[0].data[0]} />
         <Activity />
       </div>

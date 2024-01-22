@@ -1,21 +1,51 @@
 ---
 import { Octokit } from "@octokit/core";
 import { match } from "ts-pattern";
+import adjustmentsVerticalSvg from "../../assets/activity/adjustments-vertical.svg?raw";
+import banknotesSvg from "../../assets/activity/banknotes.svg?raw";
+import beakerSvg from "../../assets/activity/beaker.svg?raw";
+import chatBubbleSvg from "../../assets/activity/chat-bubble.svg?raw";
+import circleStackSvg from "../../assets/activity/circle-stack.svg?raw";
+import cloudSvg from "../../assets/activity/cloud.svg?raw";
+import codeSvg from "../../assets/activity/code.svg?raw";
+import documentDuplicateSvg from "../../assets/activity/document-duplicate.svg?raw";
+import documentTextSvg from "../../assets/activity/document-text.svg?raw";
+import folderPlusSvg from "../../assets/activity/folder-plus.svg?raw";
+import globeAltSvg from "../../assets/activity/globe-alt.svg?raw";
+import rocketLaunchSvg from "../../assets/activity/rocket-launch.svg?raw";
+import starSvg from "../../assets/activity/star.svg?raw";
+import trashSvg from "../../assets/activity/trash.svg?raw";
+import userGroupSvg from "../../assets/activity/user-group.svg?raw";
 import { formatUTCDateTimeMonthDay } from "../Utility/date";
+import ActivityItem from "./ActivityItem.astro";
+import ActivityLink from "./ActivityLink.astro";
 
 const token = import.meta.env.GITHUB_PAT;
 const octokit = new Octokit({ auth: token });
 
+// https://docs.github.com/en/rest/using-the-rest-api/github-event-types?apiVersion=2022-11-28
 const response = await octokit.request("GET /users/{username}/events/public", {
   username: "zandoh",
   per_page: 5,
   page: 0,
+  public: true,
 });
+
+const GITHUB_BASE_URL = "https://github.com/";
+const publicGithubDomain = (path) => `${GITHUB_BASE_URL}${path}`;
+
+const getRepositoryById = async (repoId) => {
+  return await octokit
+    .request("GET /repositories/:id", { id: repoId })
+    .then((res) => res)
+    .catch((err) => {
+      console.error(err);
+    });
+};
 ---
 
-{/** TODO */}
 <div>
-  <h2 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Recent Github Activity</h2>
+  <h2 class="mb-8 text-sm font-semibold text-zinc-900 dark:text-zinc-100">Recent Github Activity</h2>
   <div class="flow-root">
     <ul role="list" class="-mb-8">
       {
@@ -31,13 +61,27 @@ const response = await octokit.request("GET /users/{username}/events/public", {
               <div class="relative flex space-x-3">
                 <div>
                   <span class="flex h-8 w-8 items-center justify-center rounded-full bg-white ring-8 ring-white dark:bg-zinc-900 dark:ring-zinc-900">
-                    <div class="h-5 w-5 text-white" aria-hidden="true">
+                    <div class="h-5 w-5 text-zinc-900 dark:text-white" aria-hidden="true">
                       {match(activity.type)
-                        .with("PushEvent", () => <Fragment set:html={"PE"} />)
-                        .with("CreateEvent", () => <Fragment set:html={"CE"} />)
-                        .with("WatchEvent", () => <Fragment set:html={"WE"} />)
+                        .with("CommitCommentEvent", () => <Fragment set:html={chatBubbleSvg} />)
+                        .with("CreateEvent", () => <Fragment set:html={folderPlusSvg} />)
+                        .with("DeleteEvent", () => <Fragment set:html={trashSvg} />)
+                        .with("ForkEvent", () => <Fragment set:html={documentDuplicateSvg} />)
+                        .with("GollumEvent", () => <Fragment set:html={documentTextSvg} />)
+                        .with("IssueCommentEvent", () => <Fragment set:html={chatBubbleSvg} />)
+                        .with("IssuesEvent", () => <Fragment set:html={adjustmentsVerticalSvg} />)
+                        .with("MemberEvent", () => <Fragment set:html={userGroupSvg} />)
+                        .with("PublicEvent", () => <Fragment set:html={globeAltSvg} />)
+                        .with("PullRequestEvent", () => <Fragment set:html={cloudSvg} />)
+                        .with("PullRequestReviewEvent", () => <Fragment set:html={cloudSvg} />)
+                        .with("PullRequestReviewCommentEvent", () => <Fragment set:html={chatBubbleSvg} />)
+                        .with("PullRequestReviewThreadEvent", () => <Fragment set:html={circleStackSvg} />)
+                        .with("PushEvent", () => <Fragment set:html={codeSvg} />)
+                        .with("ReleaseEvent", () => <Fragment set:html={rocketLaunchSvg} />)
+                        .with("SponsorshipEvent", () => <Fragment set:html={banknotesSvg} />)
+                        .with("WatchEvent", () => <Fragment set:html={starSvg} />)
                         .otherwise(() => (
-                          <Fragment set:html={"O"} />
+                          <Fragment set:html={beakerSvg} />
                         ))}
                     </div>
                   </span>
@@ -45,9 +89,143 @@ const response = await octokit.request("GET /users/{username}/events/public", {
                 <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                   <div>
                     <p class="text-sm text-zinc-500 dark:text-zinc-400">
-                      <a href={""} class="font-medium text-zinc-900 dark:text-zinc-100">
-                        {activity.type}
-                      </a>
+                      {match(activity)
+                        .with({ type: "CommitCommentEvent" }, ({ payload }) => (
+                          <ActivityItem>
+                            Commented <span class="font-mono">{payload.comment.body}</span>
+                          </ActivityItem>
+                        ))
+                        .with({ type: "CreateEvent" }, ({ payload, repo }) => (
+                          <ActivityItem>
+                            Created <span class="font-mono">{(payload as { ref_type: string }).ref_type}</span>{" "}
+                            <span
+                              class={(payload as { ref_type: string }).ref_type === "repository" ? "hidden" : "visible"}
+                            >
+                              in{" "}
+                            </span>
+                            <ActivityLink href={publicGithubDomain(repo.name)}>{repo.name}</ActivityLink>
+                          </ActivityItem>
+                        ))
+                        .with({ type: "DeleteEvent" }, ({ payload }) => (
+                          <ActivityItem>
+                            Deleted <span class="font-mono">{(payload as { ref_type: string }).ref_type}</span>
+                          </ActivityItem>
+                        ))
+                        .with({ type: "ForkEvent" }, ({ payload }) => (
+                          <ActivityItem>
+                            Created fork{" "}
+                            <span class="font-mono">
+                              {(payload as { forkee: { full_name: string } }).forkee.full_name}
+                            </span>
+                          </ActivityItem>
+                        ))
+                        .with({ type: "GollumEvent" }, ({ payload }) => {
+                          return payload?.pages?.map((page) => (
+                            <ActivityItem>
+                              {page.action} page <ActivityLink href={page.html_url}>{page.page_name}</ActivityLink>
+                            </ActivityItem>
+                          ));
+                        })
+                        .with({ type: "IssueCommentEvent" }, ({ payload }) => (
+                          <ActivityItem>
+                            Comment {payload.action} on issue{" "}
+                            <ActivityLink href={payload.issue.html_url}>{payload.issue.title}</ActivityLink>
+                          </ActivityItem>
+                        ))
+                        .with({ type: "IssuesEvent" }, ({ payload }) => (
+                          <ActivityItem>
+                            <span class="font-mono">{payload.action}</span> issue
+                            <ActivityLink href={payload.issue.html_url}>{payload.issue.title}</ActivityLink>
+                          </ActivityItem>
+                        ))
+                        .with({ type: "MemberEvent" }, ({ payload }) => (
+                          <ActivityItem>
+                            {payload.action} user{" "}
+                            <ActivityLink href={(payload as { member: { html_url: string } }).member.html_url}>
+                              {(payload as { member: { name: string } }).member.name}
+                            </ActivityLink>
+                          </ActivityItem>
+                        ))
+                        .with({ type: "PublicEvent" }, ({ repo }) => (
+                          <ActivityItem>
+                            Made <ActivityLink href={publicGithubDomain(repo.name)}>{repo.name}</ActivityLink> public!
+                          </ActivityItem>
+                        ))
+                        .with({ type: "PullRequestEvent" }, ({ payload }) => (
+                          <ActivityItem>
+                            <span class="font-mono">{payload.action}</span> pull request
+                            <ActivityLink
+                              href={(payload as { pull_request: { html_url: string } }).pull_request.html_url}
+                            >
+                              {(payload as { pull_request: { title: string } }).pull_request.title}
+                            </ActivityLink>
+                          </ActivityItem>
+                        ))
+                        .with({ type: "PullRequestReviewEvent" }, ({ payload }) => (
+                          <ActivityItem>
+                            <span class="font-mono">{payload.action}</span> pull request
+                            <ActivityLink
+                              href={(payload as { pull_request: { html_url: string } }).pull_request.html_url}
+                            >
+                              {(payload as { pull_request: { title: string } }).pull_request.title}
+                            </ActivityLink>
+                          </ActivityItem>
+                        ))
+                        .with({ type: "PullRequestReviewCommentEvent" }, ({ payload }) => (
+                          <ActivityItem>
+                            <span class="font-mono">{payload.action}</span> comment on pull request
+                            <ActivityLink
+                              href={(payload as { pull_request: { html_url: string } }).pull_request.html_url}
+                            >
+                              {(payload as { pull_request: { title: string } }).pull_request.title}
+                            </ActivityLink>
+                          </ActivityItem>
+                        ))
+                        .with({ type: "PullRequestReviewThreadEvent" }, ({ payload }) => (
+                          <ActivityItem>
+                            <span class="font-mono">{payload.action}</span> thread on pull request
+                            <ActivityLink
+                              href={(payload as { pull_request: { html_url: string } }).pull_request.html_url}
+                            >
+                              {(payload as { pull_request: { title: string } }).pull_request.title}
+                            </ActivityLink>
+                          </ActivityItem>
+                        ))
+                        .with({ type: "PushEvent" }, async ({ payload }) => {
+                          const size = (payload as { distinct_size: number }).distinct_size;
+                          const message = size > 1 ? `${size} commits` : `${size} commit`;
+                          const repo = await getRepositoryById((payload as { repository_id: number }).repository_id);
+
+                          return (
+                            <ActivityItem>
+                              Pushed {message} to
+                              {repo ? (
+                                <ActivityLink href={repo.data?.html_url}>{repo.data?.full_name}</ActivityLink>
+                              ) : (
+                                "a deleted repository."
+                              )}
+                            </ActivityItem>
+                          );
+                        })
+                        .with({ type: "ReleaseEvent" }, ({ payload }) => (
+                          <ActivityItem>
+                            {payload.action} release{" "}
+                            <ActivityLink href={(payload as { release: { html_url: string } }).release.html_url}>
+                              {(payload as { release: { name: string } }).release.name}
+                            </ActivityLink>
+                          </ActivityItem>
+                        ))
+                        .with({ type: "SponsorshipEvent" }, ({ payload }) => (
+                          <ActivityItem>{payload.action} sponsorship</ActivityItem>
+                        ))
+                        .with({ type: "WatchEvent" }, ({ repo }) => (
+                          <ActivityItem>
+                            Starred <ActivityLink href={publicGithubDomain(repo.name)}>{repo.name}</ActivityLink>
+                          </ActivityItem>
+                        ))
+                        .otherwise(() => (
+                          <Fragment />
+                        ))}
                     </p>
                   </div>
                   <div class="whitespace-nowrap text-right text-sm text-zinc-500 dark:text-zinc-400">

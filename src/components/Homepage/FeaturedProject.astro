@@ -10,28 +10,26 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<Fragment>
-  <article class="group relative flex flex-col items-start">
-    <h2 class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-      <div
-        class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"
-      >
-      </div>
-      <a target="_blank" rel="noopener noreferrer" aria-label={project.link.label} href={project.link.href}>
-        <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
-        <span class="relative z-10">{project.name}</span></a
-      >
-    </h2>
-    <div class="relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-zinc-400 dark:text-zinc-500">
-      <span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
-        <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
-      </span>
-      <div>Featured Project</div>
+<article class="group relative flex flex-col items-start">
+  <h2 class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+    <div
+      class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"
+    >
     </div>
-    <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">{project.description}</p>
-    <div aria-hidden="true" class="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500">
-      Visit Project <span class="ml-1 h-4 w-4 stroke-current"><Fragment set:html={chevronRightSvg} /></span>
-    </div>
-  </article>
-  <NavLink href="/projects" className={"w-fit text-zinc-600 dark:text-zinc-400"}>View All Projects</NavLink>
-</Fragment>
+    <a target="_blank" rel="noopener noreferrer" aria-label={project.link.label} href={project.link.href}>
+      <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
+      <span class="relative z-10">{project.name}</span></a
+    >
+  </h2>
+  <div class="relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-zinc-400 dark:text-zinc-500">
+    <span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
+      <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+    </span>
+    <div>Featured Project</div>
+  </div>
+  <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">{project.description}</p>
+  <div aria-hidden="true" class="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500">
+    Visit Project <span class="ml-1 h-4 w-4 stroke-current"><Fragment set:html={chevronRightSvg} /></span>
+  </div>
+</article>
+<NavLink href="/projects" className={"w-fit text-zinc-600 dark:text-zinc-400"}>View All Projects</NavLink>
