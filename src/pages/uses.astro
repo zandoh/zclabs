@@ -1,11 +1,19 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "../components/General/BaseLayout.astro";
 import PageLayout from "../components/General/PageLayout.astro";
 import Usage from "../components/Uses/Usage.astro";
 import UsageSection from "../components/Uses/UsageSection.astro";
 
-const usages = await getCollection("uses");
+const sectionPriority: CollectionEntry<"uses">["data"]["section"][] = ["Software", "Gear", "Services"];
+const usages = await getCollection("uses").then((res) =>
+  res.toSorted((a, b) => {
+    const priorityA = sectionPriority.indexOf(a.data.section);
+    const priorityB = sectionPriority.indexOf(b.data.section);
+
+    return priorityA - priorityB;
+  }),
+);
 ---
 
 <BaseLayout title="Uses - Zac Clark" description="Software I use, gadgets I love, and other things I recommend.">
