@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import chevronRightSvg from "../../assets/general/chevron_right.svg?raw";
-import NavLink from "../Utility/NavLink.astro";
 
 interface Props {
   project: CollectionEntry<"projects">["data"][number];
@@ -32,4 +31,3 @@ const { project } = Astro.props;
     Visit Project <span class="ml-1 h-4 w-4 stroke-current"><Fragment set:html={chevronRightSvg} /></span>
   </div>
 </article>
-<NavLink href="/projects" className={"w-fit text-zinc-600 dark:text-zinc-400"}>View All Projects</NavLink>
