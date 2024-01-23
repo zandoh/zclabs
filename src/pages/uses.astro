@@ -7,7 +7,7 @@ import UsageSection from "../components/Uses/UsageSection.astro";
 
 const sectionPriority: CollectionEntry<"uses">["data"]["section"][] = ["Software", "Gear", "Services"];
 const usages = await getCollection("uses").then((res) =>
-  res.toSorted((a, b) => {
+  res.sort((a, b) => {
     const priorityA = sectionPriority.indexOf(a.data.section);
     const priorityB = sectionPriority.indexOf(b.data.section);
 
