@@ -1,20 +1,20 @@
 import { defineCollection, z } from "astro:content";
 
 const projects = defineCollection({
-  type: "data",
+  type: "content",
   schema: ({ image }) =>
-    z.array(
-      z.object({
-        name: z.string(),
-        description: z.string(),
+    z
+      .object({
+        title: z.string(),
+        summary: z.string(),
         logo: z.object({ image: image() }),
         link: z.object({
           href: z.string().url(),
           label: z.string(),
         }),
         featured: z.boolean(),
-      }),
-    ),
+      })
+      .passthrough(),
 });
 
 const favorites = defineCollection({

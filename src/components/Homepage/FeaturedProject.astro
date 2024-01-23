@@ -3,7 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import chevronRightSvg from "../../assets/general/chevron_right.svg?raw";
 
 interface Props {
-  project: CollectionEntry<"projects">["data"][number];
+  project: CollectionEntry<"projects">;
 }
 
 const { project } = Astro.props;
@@ -15,9 +15,9 @@ const { project } = Astro.props;
       class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"
     >
     </div>
-    <a target="_blank" rel="noopener noreferrer" aria-label={project.link.label} href={project.link.href}>
+    <a target="_blank" rel="noopener noreferrer" href={`/projects/${project.slug}`}>
       <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
-      <span class="relative z-10">{project.name}</span></a
+      <span class="relative z-10">{project.data.title}</span></a
     >
   </h2>
   <div class="relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-zinc-400 dark:text-zinc-500">
@@ -26,7 +26,7 @@ const { project } = Astro.props;
     </span>
     <div>Featured Project</div>
   </div>
-  <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">{project.description}</p>
+  <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">{project.data.summary}</p>
   <div aria-hidden="true" class="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500">
     Visit Project <span class="ml-1 h-4 w-4 stroke-current"><Fragment set:html={chevronRightSvg} /></span>
   </div>

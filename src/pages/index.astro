@@ -9,9 +9,7 @@ import Resume from "../components/Homepage/Resume.astro";
 import SocialLink from "../components/Homepage/SocialLink.astro";
 
 const socials = await getCollection("socials");
-const featuredProjects = await getCollection("projects", (collection) =>
-  collection.data.find((project) => project.featured === true),
-);
+const featuredProject = await getCollection("projects", (entry) => entry.data.featured === true).then((res) => res[0]);
 ---
 
 {/* @TODO: Everywhere, image optimization */}
@@ -37,7 +35,7 @@ const featuredProjects = await getCollection("projects", (collection) =>
     <div class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
       <div class="flex flex-col gap-8">
         {/* TODO: Flesh out projects. First featured project will be this website. */}
-        <FeaturedProject project={featuredProjects[0].data[0]} />
+        <FeaturedProject project={featuredProject} />
         <Activity />
       </div>
       <div class="space-y-10 lg:pl-16 xl:pl-24">
