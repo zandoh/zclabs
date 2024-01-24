@@ -1,0 +1,14 @@
+---
+import spotifySvg from "../../assets/general/spotify_logo.svg?raw";
+
+const { class: className } = Astro.props;
+---
+
+<button
+  class:list={[
+    "h-10 w-10 cursor-pointer rounded-full bg-[#1ed760] p-0 bg-blend-lighten shadow transition duration-200 ease-in hover:bg-blend-darken focus:outline-none active:shadow-lg",
+    className,
+  ]}
+>
+  <div class="mt-1 inline-block h-8 w-8 cursor-pointer" set:html={spotifySvg} />
+</button>
