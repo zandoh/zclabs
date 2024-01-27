@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import Config from "../../../astro.config";
 import arrowDownSvg from "../../assets/general/arrow_down.svg?raw";
 import briefcaseSvg from "../../assets/general/briefcase.svg?raw";
 import SecondaryButton from "../Utility/SecondaryButton.astro";
@@ -17,7 +16,7 @@ const roles = await getCollection("roles");
   <ol class="mt-6 space-y-4">
     {roles.map(({ data }) => data.map((role) => <ResumeItem role={role} />))}
   </ol>
-  <a href={`${Config.publicDir}/resume.pdf`} download>
+  <a href={"/resume.pdf"} download>
     <SecondaryButton class="group mt-6 w-full">
       Download résumé
       <span
