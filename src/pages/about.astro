@@ -22,6 +22,8 @@ const socials = await getCollection("socials");
             alt=""
             sizes="(min-width: 1024px) 32rem, 20rem"
             class="visible absolute !aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover opacity-100 transition-all duration-1000 group-hover:invisible group-hover:opacity-0 dark:bg-zinc-800"
+            loading="eager"
+            fetchpriority="high"
           />
           <Image
             src={portraitFunnyImage}
