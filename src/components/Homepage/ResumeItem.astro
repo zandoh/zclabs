@@ -1,5 +1,5 @@
 ---
-import { Image } from "@unpic/astro";
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { formatUTCDateTimeMonthYear } from "../Utility/date";
 
@@ -21,6 +21,7 @@ const formattedEndDate = role.current ? "Present" : formatUTCDateTimeMonthYear(r
       src={role.logo.image.src}
       width={role.logo.image.width}
       height={role.logo.image.height}
+      format={role.logo.image.format}
       alt=""
       class="h-7 w-7 rounded-full object-scale-down"
     />
