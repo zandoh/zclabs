@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Image } from "@unpic/astro";
 import { getCollection } from "astro:content";
 import linkSvg from "../assets/general/link.svg?raw";
 import BaseLayout from "../components/General/BaseLayout.astro";
@@ -24,7 +24,6 @@ const projects = await getCollection("projects");
                 src={project.logo.image.src}
                 width={project.logo.image.width}
                 height={project.logo.image.height}
-                format={project.logo.image.format}
                 alt=""
                 class="h-8 w-8"
               />

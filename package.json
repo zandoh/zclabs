@@ -18,6 +18,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
+    "@unpic/astro": "^0.0.41",
     "@vercel/analytics": "^1.0.2",
     "@vercel/speed-insights": "^1.0.5",
     "astro": "^4.2.1",

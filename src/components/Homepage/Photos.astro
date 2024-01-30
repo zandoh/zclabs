@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Image } from "@unpic/astro";
 import { getCollection } from "astro:content";
 const rotations = ["rotate-2", "-rotate-2", "rotate-2", "rotate-2", "-rotate-2"];
 const collection = await getCollection("heroImages");
@@ -22,7 +22,7 @@ const collection = await getCollection("heroImages");
               src={image.src}
               width={image.width}
               height={image.height}
-              format={image.format}
+              priority={true}
               alt=""
             />
           </div>

@@ -13,8 +13,6 @@ const socials = await getCollection("socials");
 const featuredProject = await getCollection("projects", (entry) => entry.data.featured === true).then((res) => res[0]);
 ---
 
-{/* @TODO: Everywhere, image optimization */}
-
 <BaseLayout title="Zac Clark - Software Engineer" description="A software engineer based in Upstate New York">
   <FluidContainer class="mt-9">
     <div class="max-w-2xl">
