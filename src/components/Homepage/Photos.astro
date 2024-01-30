@@ -22,8 +22,9 @@ const collection = await getCollection("heroImages");
               src={image.src}
               width={image.width}
               height={image.height}
-              format={image.format}
               alt=""
+              loading="eager"
+              fetchpriority="high"
             />
           </div>
         )),

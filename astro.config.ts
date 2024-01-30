@@ -12,13 +12,11 @@ export default defineConfig({
     webAnalytics: {
       enabled: true,
     },
-    imageService: true,
-    devImageService: "sharp",
   }),
   image: {
     service: imageService({
-      fallbackService: "astro",
-      placeholder: "blurhash",
+      fallbackService: "sharp",
+      placeholder: "lqip",
       layout: "constrained",
     }),
   },
