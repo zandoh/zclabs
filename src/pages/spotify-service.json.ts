@@ -10,7 +10,7 @@ export const GET: APIRoute = async () => {
   const sdk = SpotifyApi.withAccessToken(clientId, {
     access_token: accessToken,
     token_type: "Bearer",
-    expires_in: 10000,
+    expires_in: 3000,
     refresh_token: refreshToken,
   });
 
