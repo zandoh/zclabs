@@ -3,19 +3,26 @@ import type { APIRoute } from "astro";
 
 export const prerender = false;
 const clientId = import.meta.env.SPOTIFY_CLIENT_ID;
-const accessToken = import.meta.env.SPOTIFY_ACCESS_TOKEN;
-const refreshToken = import.meta.env.SPOTIFY_REFRESH_TOKEN;
 
 export const GET: APIRoute = async () => {
   const sdk = SpotifyApi.withAccessToken(clientId, {
-    access_token: accessToken,
+    access_token: global.access_token,
     token_type: "Bearer",
-    expires_in: 3000,
-    refresh_token: refreshToken,
+    expires_in: 3600,
+    refresh_token: global.refresh_token,
   });
 
   try {
     let track = await sdk.player.getCurrentlyPlayingTrack("US", "track");
+
+    if (!track) {
+      return new Response(JSON.stringify({ data: null }), {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
 
     if (track.currently_playing_type === "episode") {
       track = await sdk.player.getCurrentlyPlayingTrack("US", "episode");

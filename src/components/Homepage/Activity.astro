@@ -38,8 +38,8 @@ const getRepositoryById = async (repoId) => {
   return await octokit
     .request("GET /repositories/:id", { id: repoId })
     .then((res) => res)
-    .catch((err) => {
-      console.error(err);
+    .catch((e) => {
+      console.error(e);
     });
 };
 ---
