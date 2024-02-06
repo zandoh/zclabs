@@ -15,17 +15,17 @@ export const GET: APIRoute = async () => {
   try {
     let track = await sdk.player.getCurrentlyPlayingTrack("US", "track");
 
-    if (!track) {
+    if (track && track.currently_playing_type === "episode") {
+      track = await sdk.player.getCurrentlyPlayingTrack("US", "episode");
+    }
+
+    if (!track || track.is_playing === false) {
       return new Response(JSON.stringify({ data: null }), {
         status: 200,
         headers: {
           "Content-Type": "application/json",
         },
       });
-    }
-
-    if (track.currently_playing_type === "episode") {
-      track = await sdk.player.getCurrentlyPlayingTrack("US", "episode");
     }
 
     return new Response(
