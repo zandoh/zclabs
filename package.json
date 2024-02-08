@@ -19,7 +19,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "@unpic/astro": "^0.0.41",
+    "@unpic/astro": "^0.0.42",
     "@vercel/analytics": "^1.0.2",
     "@vercel/speed-insights": "^1.0.5",
     "astro": "^4.2.6",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.0",
+    "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-tailwindcss": "^0.5.4"
   }
 }
