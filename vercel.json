@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/spotify/auth.json",
+      "schedule": "*/30 * * * *"
+    }
+  ]
+}
