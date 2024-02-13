@@ -1,6 +1,12 @@
 import type { AccessToken } from "@spotify/web-api-ts-sdk";
+import { createClient } from "@vercel/kv";
 import type { APIRoute } from "astro";
 import { encodeFormData } from "../../utils";
+
+const kv = createClient({
+  url: import.meta.env.KV_REST_API_URL,
+  token: import.meta.env.KV_REST_API_TOKEN,
+});
 
 export const prerender = false;
 const clientId = import.meta.env.SPOTIFY_CLIENT_ID;
@@ -43,10 +49,13 @@ export const GET: APIRoute = async ({ url: { searchParams }, cookies }) => {
 
       return response.json() as Promise<AccessToken>;
     })
-    .then((data) => {
-      // lol
-      global.access_token = data.access_token;
-      global.refresh_token = data.refresh_token;
+    .then(async (data) => {
+      try {
+        await kv.set(`${import.meta.env.ENVIRONMENT}/access_token`, data.access_token);
+        await kv.set(`${import.meta.env.ENVIRONMENT}/refresh_token`, data.refresh_token);
+      } catch (e) {
+        console.error("Failed to set KV values", e);
+      }
 
       return new Response(null, {
         status: 200,
