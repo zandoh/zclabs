@@ -7,7 +7,7 @@ import FeaturedProject from "../components/Homepage/FeaturedProject.astro";
 import Photos from "../components/Homepage/Photos.astro";
 import Resume from "../components/Homepage/Resume.astro";
 import SocialLink from "../components/Homepage/SocialLink.astro";
-import SpotifyWidget from "../components/Spotify/SpotifyWidget.astro";
+import { SpotifyWidget } from "../components/Spotify/SpotifyWidget";
 
 const socials = await getCollection("socials");
 const featuredProject = await getCollection("projects", (entry) => entry.data.featured === true).then((res) => res[0]);
@@ -41,6 +41,6 @@ const featuredProject = await getCollection("projects", (entry) => entry.data.fe
         <Resume />
       </div>
     </div>
-    <SpotifyWidget />
   </FluidContainer>
 </BaseLayout>
+<SpotifyWidget client:load />
