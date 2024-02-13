@@ -1,10 +1,10 @@
 import type { Episode, Track } from "@spotify/web-api-ts-sdk";
 import { useQuery } from "@tanstack/react-query";
+import type { Dispatch, SetStateAction } from "react";
 import { match } from "ts-pattern";
-import spotifySvg from "../../assets/general/spotify_logo.svg";
 import { getPlaybackState } from "./clientApi";
 
-export const SpotifyPlayer = () => {
+export const SpotifyPlayer = ({ setPlayerOpen }: { setPlayerOpen: Dispatch<SetStateAction<boolean>> }) => {
   const { data, isPending, error } = useQuery({
     queryKey: ["spotify/service/data"],
     queryFn: getPlaybackState,
@@ -47,7 +47,7 @@ export const SpotifyPlayer = () => {
     }));
 
   return (
-    <div className="fixed bottom-0 right-5 max-w-[400px]">
+    <div className="fixed bottom-0 right-5 max-w-[400px] select-none">
       <div className="grid max-h-[200px] grid-cols-[125px_225px_50px] grid-rows-[1fr] gap-x-0 gap-y-0 overflow-clip rounded-t">
         <div className="h-[125px] bg-black">
           <img src={playingTrack.image} />
@@ -61,11 +61,6 @@ export const SpotifyPlayer = () => {
           </p>
         </div>
         <div className="flex flex-col items-center justify-evenly bg-neutral-400 dark:bg-neutral-950">
-          <button className="h-7 w-7 cursor-default rounded-full bg-zinc-500 fill-zinc-50 p-0 dark:bg-zinc-400 dark:fill-black">
-            <div className="mt-1 inline-block h-5 w-5">
-              <img {...spotifySvg} />
-            </div>
-          </button>
           <span className="cursor-pointer text-zinc-50 dark:text-zinc-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -78,11 +73,23 @@ export const SpotifyPlayer = () => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
             </svg>
           </span>
+          <span className="cursor-pointer text-zinc-50 dark:text-zinc-400" onClick={() => setPlayerOpen(false)}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="h-6 w-6"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </span>
         </div>
       </div>
       <div className="mb-4 h-1.5 w-full rounded-full bg-zinc-200 dark:bg-zinc-600">
         <div
-          className="h-1.5 rounded-full bg-green-500"
+          className="h-1.5 rounded-full bg-green-500 transition-all duration-[5000ms] ease-in-out"
           style={{ width: `${Math.round((playingTrack.progress / playingTrack.duration) * 100)}%` }}
         ></div>
       </div>

@@ -8,6 +8,26 @@ export default {
   darkMode: "class",
   plugins: [typographyPlugin],
   theme: {
+    extend: {
+      animation: {
+        "spotify-amplify": "spotify-amplify 2s infinite",
+      },
+      keyframes: {
+        "spotify-amplify": {
+          "0%": {
+            transform: "scale(0.8)",
+            "box-shadow": "0 0 0 0 rgba(30, 215, 96, 1)",
+          },
+          "70%": {
+            transform: "scale(1)",
+            "box-shadow": "0 0 0 30px rgba(30, 215, 96, 0)",
+          },
+          "100%": {
+            transform: "scale(0.8)",
+          },
+        },
+      },
+    },
     fontSize: {
       xs: ["0.8125rem", { lineHeight: "1.5rem" }],
       sm: ["0.875rem", { lineHeight: "1.5rem" }],
