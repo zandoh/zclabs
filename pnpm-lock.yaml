@@ -15,10 +15,10 @@ dependencies:
     version: 3.0.10(@types/react-dom@18.2.19)(@types/react@18.2.55)(react-dom@18.2.0)(react@18.2.0)(vite@5.1.1)
   '@astrojs/tailwind':
     specifier: ^5.1.0
-    version: 5.1.0(astro@4.3.6)(tailwindcss@3.4.1)
+    version: 5.1.0(astro@4.3.7)(tailwindcss@3.4.1)
   '@astrojs/vercel':
-    specifier: ^7.0.2
-    version: 7.3.0(astro@4.3.6)
+    specifier: ^7.3.1
+    version: 7.3.1(astro@4.3.7)
   '@octokit/core':
     specifier: ^5.1.0
     version: 5.1.0
@@ -29,8 +29,8 @@ dependencies:
     specifier: ^0.5.9
     version: 0.5.10(tailwindcss@3.4.1)
   '@tanstack/react-query':
-    specifier: ^5.20.2
-    version: 5.20.2(react@18.2.0)
+    specifier: ^5.20.5
+    version: 5.20.5(react@18.2.0)
   '@types/react':
     specifier: ^18.2.21
     version: 18.2.55
@@ -39,7 +39,7 @@ dependencies:
     version: 18.2.19
   '@unpic/astro':
     specifier: ^0.0.43
-    version: 0.0.43(astro@4.3.6)
+    version: 0.0.43(astro@4.3.7)
   '@vercel/analytics':
     specifier: ^1.0.2
     version: 1.1.3
@@ -50,8 +50,8 @@ dependencies:
     specifier: ^1.0.5
     version: 1.0.9(react@18.2.0)
   astro:
-    specifier: ^4.3.6
-    version: 4.3.6
+    specifier: ^4.3.7
+    version: 4.3.7
   astro-compress:
     specifier: ^2.2.10
     version: 2.2.10
@@ -163,13 +163,13 @@ packages:
       - vite
     dev: false
 
-  /@astrojs/tailwind@5.1.0(astro@4.3.6)(tailwindcss@3.4.1):
+  /@astrojs/tailwind@5.1.0(astro@4.3.7)(tailwindcss@3.4.1):
     resolution: {integrity: sha512-BJoCDKuWhU9FT2qYg+fr6Nfb3qP4ShtyjXGHKA/4mHN94z7BGcmauQK23iy+YH5qWvTnhqkd6mQPQ1yTZTe9Ig==}
     peerDependencies:
       astro: ^3.0.0 || ^4.0.0
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 4.3.6
+      astro: 4.3.7
       autoprefixer: 10.4.17(postcss@8.4.35)
       postcss: 8.4.35
       postcss-load-config: 4.0.2(postcss@8.4.35)
@@ -193,15 +193,15 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/vercel@7.3.0(astro@4.3.6):
-    resolution: {integrity: sha512-xpGg9i+Wae8hSY/p2P+pbP5pbRbgaIbmtfO29qLndxQoDDygDf/GAaEgEd9y1qMI5Huhl0MbYbEPG5thgt82ng==}
+  /@astrojs/vercel@7.3.1(astro@4.3.7):
+    resolution: {integrity: sha512-nzpvuRIJMbmLXd0nQpVrOGCPOEx792aAI25aFNK3uC0lD/yGyAlY4nHkCeaE/c+0vkiRdCbfGlHujz3emWpg2w==}
     peerDependencies:
       astro: ^4.2.0
     dependencies:
       '@astrojs/internal-helpers': 0.2.1
       '@vercel/analytics': 1.1.3
       '@vercel/nft': 0.24.4
-      astro: 4.3.6
+      astro: 4.3.7
       esbuild: 0.19.12
       fast-glob: 3.3.2
       set-cookie-parser: 2.6.0
@@ -1161,16 +1161,16 @@ packages:
       tailwindcss: 3.4.1
     dev: false
 
-  /@tanstack/query-core@5.20.2:
-    resolution: {integrity: sha512-sAILwNiyA1I52e6imOsmNDUA/PuOayOzqz5jcLiIB5wBXqVk+HIiriWouPcAkjS8RqARfHUehuoPwcZ7Uzh0GQ==}
+  /@tanstack/query-core@5.20.5:
+    resolution: {integrity: sha512-T1W28gGgWn0A++tH3lxj3ZuUVZZorsiKcv+R50RwmPYz62YoDEkG4/aXHZELGkRp4DfrW07dyq2K5dvJ4Wl1aA==}
     dev: false
 
-  /@tanstack/react-query@5.20.2(react@18.2.0):
-    resolution: {integrity: sha512-949myvMY77cPqwb71m3wRG2ypgwPijshO5kN9w0CDKWrFC0X8Wh1mwSqst88kIr58tWlWNsGy3U40AK23RgYQA==}
+  /@tanstack/react-query@5.20.5(react@18.2.0):
+    resolution: {integrity: sha512-6MHwJ8G9cnOC/XKrwt56QMc91vN7hLlAQNUA0ubP7h9Jj3a/CmkUwT6ALdFbnVP+PsYdhW3WONa8WQ4VcTaSLQ==}
     peerDependencies:
       react: ^18.0.0
     dependencies:
-      '@tanstack/query-core': 5.20.2
+      '@tanstack/query-core': 5.20.5
       react: 18.2.0
     dev: false
 
@@ -1294,7 +1294,7 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: false
 
-  /@unpic/astro@0.0.43(astro@4.3.6):
+  /@unpic/astro@0.0.43(astro@4.3.7):
     resolution: {integrity: sha512-yEGyvLjJGZC6bxUFYyy6dt/l0sQWHJepBjAaoveLi5W7Ex9PYDdCj2zgTYVoxp7dBY8TeDzdPP3jmEpZv06o/w==}
     peerDependencies:
       astro: ^2.0.0 || ^3.0.0 || ^4.0.0
@@ -1302,7 +1302,7 @@ packages:
       '@unpic/core': 0.0.46
       '@unpic/pixels': 1.2.1
       '@unpic/placeholder': 0.1.2
-      astro: 4.3.6
+      astro: 4.3.7
       blurhash: 2.0.5
     dev: false
 
@@ -1526,8 +1526,8 @@ packages:
       terser: 5.27.0
     dev: false
 
-  /astro@4.3.6:
-    resolution: {integrity: sha512-VYJGsBygMtPM/qTRgn5QdxkSILgjpW2uHVw3snp/Gkl+N9uRAAnuYxrUO7wkbLejfrmlb0nZyyKG+H5VDQPbeg==}
+  /astro@4.3.7:
+    resolution: {integrity: sha512-spdl+Ae6WZjQ0w8VBPq8ulN1hdN0m4EWvKG7ecgHjPQIHidMnzWJoZLEFEeKASqCGB1fDibqr7RDHoHkhZbp2Q==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
@@ -1656,19 +1656,19 @@ packages:
     dev: false
     optional: true
 
-  /bare-fs@2.1.3:
-    resolution: {integrity: sha512-Oa7F0QJV7We0mtKq7Tk246uiBrl7vun64cPEsJOEwv2vHjnVL9yO7aH3643aSrd4rXfVe7yhJ9LHZywQQAXKFQ==}
+  /bare-fs@2.1.5:
+    resolution: {integrity: sha512-5t0nlecX+N2uJqdxe9d18A98cp2u9BETelbjKpiVgQqzzmVNFYWEAjQHqS+2Khgto1vcwhik9cXucaj5ve2WWA==}
     requiresBuild: true
     dependencies:
       bare-events: 2.2.0
-      bare-os: 2.1.2
+      bare-os: 2.1.3
       bare-path: 2.1.0
       streamx: 2.15.8
     dev: false
     optional: true
 
-  /bare-os@2.1.2:
-    resolution: {integrity: sha512-slQjOn78Q8itnzomNAamiKo5MDpEpV3JnoNZ93lyynaFh6paWcU+5c0GVcZ7EYIJC2unN2JGdF1qupdscYl0Yg==}
+  /bare-os@2.1.3:
+    resolution: {integrity: sha512-YMKOQzoMouGCrYgJ0rassKvmbTz+TYDOKKmu4JkfNXS/qKn+If1ODCMEXnmknQXfnB1PS8bR+uHu6xBgwAQXew==}
     requiresBuild: true
     dev: false
     optional: true
@@ -1677,7 +1677,7 @@ packages:
     resolution: {integrity: sha512-DIIg7ts8bdRKwJRJrUMy/PICEaQZaPGZ26lsSx9MJSwIhSrcdHn7/C8W+XmnG/rKi6BaRcz+JO00CjZteybDtw==}
     requiresBuild: true
     dependencies:
-      bare-os: 2.1.2
+      bare-os: 2.1.3
     dev: false
     optional: true
 
@@ -4838,7 +4838,7 @@ packages:
       pump: 3.0.0
       tar-stream: 3.1.7
     optionalDependencies:
-      bare-fs: 2.1.3
+      bare-fs: 2.1.5
       bare-path: 2.1.0
     dev: false
     optional: true
