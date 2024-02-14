@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { RedisUtils, SpotifyUtils } from "./utils";
+import { RedisUtils, SpotifyUtils } from "../../utils";
 
 export const prerender = false;
 const clientId = import.meta.env.SPOTIFY_CLIENT_ID;

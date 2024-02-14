@@ -1,6 +1,6 @@
 import type { AccessToken } from "@spotify/web-api-ts-sdk";
 import type { APIRoute } from "astro";
-import { ApiUtils, RedisUtils, SpotifyUtils } from "./utils";
+import { ApiUtils, RedisUtils, SpotifyUtils } from "../../utils";
 
 export const prerender = false;
 
