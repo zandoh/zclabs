@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   '@spotify/web-api-ts-sdk@1.2.0':
-    hash: hd2qlqr7js47quqos2avy6m34q
+    hash: tspr6spqtiybew6lt67qhp4wce
     path: patches/@spotify__web-api-ts-sdk@1.2.0.patch
 
 dependencies:
@@ -24,7 +24,7 @@ dependencies:
     version: 5.1.0
   '@spotify/web-api-ts-sdk':
     specifier: ^1.2.0
-    version: 1.2.0(patch_hash=hd2qlqr7js47quqos2avy6m34q)
+    version: 1.2.0(patch_hash=tspr6spqtiybew6lt67qhp4wce)
   '@tailwindcss/typography':
     specifier: ^0.5.9
     version: 0.5.10(tailwindcss@3.4.1)
@@ -1144,7 +1144,7 @@ packages:
     dev: false
     optional: true
 
-  /@spotify/web-api-ts-sdk@1.2.0(patch_hash=hd2qlqr7js47quqos2avy6m34q):
+  /@spotify/web-api-ts-sdk@1.2.0(patch_hash=tspr6spqtiybew6lt67qhp4wce):
     resolution: {integrity: sha512-JUaebva3Ohwo5I5tuTqyW/FKGOMbb40YevJMySAOINRxP7qQ/AMjBzfJx0zeO6yS+wAPfQSoGNsZaUggHw8vsA==}
     dev: false
     patched: true

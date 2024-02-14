@@ -1,17 +1,8 @@
 import type { AccessToken } from "@spotify/web-api-ts-sdk";
-import { createClient } from "@vercel/kv";
 import type { APIRoute } from "astro";
-import { encodeFormData } from "../../utils";
-
-const kv = createClient({
-  url: import.meta.env.KV_REST_API_URL,
-  token: import.meta.env.KV_REST_API_TOKEN,
-});
+import { ApiUtils, RedisUtils, SpotifyUtils } from "./utils";
 
 export const prerender = false;
-const clientId = import.meta.env.SPOTIFY_CLIENT_ID;
-const clientSecret = import.meta.env.SPOTIFY_CLIENT_SECRET;
-const redirectUri = import.meta.env.SPOTIFY_REDIRECT_URI;
 
 export const GET: APIRoute = async ({ url: { searchParams }, cookies }) => {
   const code = searchParams.get("code");
@@ -37,29 +28,28 @@ export const GET: APIRoute = async ({ url: { searchParams }, cookies }) => {
   return fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
     headers: {
-      Authorization: "Basic " + Buffer.from(clientId + ":" + clientSecret).toString("base64"),
+      Authorization: SpotifyUtils.getBasicAuthHeader(),
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: encodeFormData({
+    body: ApiUtils.encodeFormData({
       grant_type: "authorization_code",
       code: code,
-      redirect_uri: redirectUri,
+      redirect_uri: import.meta.env.SPOTIFY_REDIRECT_URI,
     }),
   })
     .then((response) => {
       if (response.status !== 200) {
-        throw Error(JSON.stringify({ status: response.status, statusText: response.statusText }));
+        throw new Error(JSON.stringify({ status: response.status, statusText: response.statusText }));
       }
 
       return response.json() as Promise<AccessToken>;
     })
     .then(async (data) => {
-      try {
-        await kv.set(`${import.meta.env.ENVIRONMENT}/access_token`, data.access_token);
-        await kv.set(`${import.meta.env.ENVIRONMENT}/refresh_token`, data.refresh_token);
-      } catch (e) {
-        console.error("Failed to set KV values", e);
-      }
+      await RedisUtils.setTokens({
+        access_token: data.access_token,
+        refresh_token: data.refresh_token,
+        expires: Date.now() + 3600 * 1000,
+      });
 
       return new Response(null, {
         status: 200,

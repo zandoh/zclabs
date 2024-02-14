@@ -5,7 +5,7 @@ import { getPlaybackState } from "./clientApi";
 
 export const SpotifyFab = ({ setPlayerOpen }: { setPlayerOpen: Dispatch<SetStateAction<boolean>> }) => {
   const { data } = useQuery({
-    queryKey: ["spotify/service/data"],
+    queryKey: ["spotify/playing/data"],
     queryFn: getPlaybackState,
     refetchInterval: 5000,
   });

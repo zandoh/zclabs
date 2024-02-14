@@ -2,11 +2,12 @@ import { SpotifyApi } from "@spotify/web-api-ts-sdk";
 import type { APIRoute } from "astro";
 
 export const prerender = false;
-const clientId = import.meta.env.SPOTIFY_CLIENT_ID;
-const clientSecret = import.meta.env.SPOTIFY_CLIENT_SECRET;
 
 export const GET: APIRoute = async ({ url: { searchParams } }) => {
-  const sdk = SpotifyApi.withClientCredentials(clientId, clientSecret);
+  const sdk = SpotifyApi.withClientCredentials(
+    import.meta.env.SPOTIFY_CLIENT_ID,
+    import.meta.env.SPOTIFY_CLIENT_SECRET,
+  );
   const query = searchParams.get("q");
 
   if (!query) {
