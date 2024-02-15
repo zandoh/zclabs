@@ -20,31 +20,39 @@ export const SpotifyPlayer = ({ setPlayerOpen }: { setPlayerOpen: Dispatch<SetSt
       const item = d.item as Track;
 
       return {
+        isStub: false,
         artist: item.artists.map((artist) => artist.name).join(", "),
         duration: item.duration_ms,
         image: item.album.images[0].url ?? "",
         progress: d.progress_ms,
         title: item.name,
-      };
+        spotifyLink: item.external_urls.spotify,
+      } as const;
     })
     .with({ item: { type: "episode" } }, (d) => {
       const item = d.item as Episode;
 
       return {
+        isStub: false,
         artist: item.show.name,
         duration: item.duration_ms,
         image: item.images[0].url ?? "",
         progress: d.progress_ms,
         title: item.name,
-      };
+        spotifyLink: item.external_urls.spotify,
+      } as const;
     })
-    .otherwise(() => ({
-      artist: "Suggest Something",
-      duration: 1,
-      image: "",
-      progress: 0,
-      title: "No Track",
-    }));
+    .otherwise(
+      () =>
+        ({
+          isStub: true,
+          artist: "Suggest Something",
+          duration: 1,
+          image: "",
+          progress: 0,
+          title: "No Track",
+        }) as const,
+    );
 
   return (
     <div className="fixed bottom-0 right-5 max-w-[400px] select-none">
@@ -53,15 +61,36 @@ export const SpotifyPlayer = ({ setPlayerOpen }: { setPlayerOpen: Dispatch<SetSt
           <img src={playingTrack.image} />
         </div>
         <div className="flex cursor-default flex-col items-start justify-center truncate bg-neutral-100 px-8 dark:bg-neutral-900">
-          <p className="inline-block max-w-full truncate font-bold text-zinc-800 dark:text-zinc-100">
-            {playingTrack.title}
-          </p>
-          <p className="inline-block max-w-full truncate text-base text-zinc-600 dark:text-zinc-400">
-            {playingTrack.artist}
-          </p>
+          {match(playingTrack)
+            .with({ isStub: true }, (pt) => (
+              <>
+                <p className="inline-block max-w-full truncate font-bold text-zinc-800 dark:text-zinc-100">
+                  {pt.title}
+                </p>
+                <p className="inline-block max-w-full truncate text-base text-zinc-600 dark:text-zinc-400">
+                  {pt.artist}
+                </p>
+              </>
+            ))
+            .with({ isStub: false }, (pt) => (
+              <>
+                <a
+                  className="inline-block max-w-full cursor-pointer truncate font-bold text-zinc-800 hover:!text-green-500 dark:text-zinc-100"
+                  href={pt.spotifyLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {pt.title}
+                </a>
+                <div className="inline-block max-w-full truncate text-base text-zinc-600 dark:text-zinc-400">
+                  {pt.artist}
+                </div>
+              </>
+            ))
+            .exhaustive()}
         </div>
         <div className="flex flex-col items-center justify-evenly bg-neutral-400 dark:bg-neutral-950">
-          <span className="cursor-pointer text-zinc-50 dark:text-zinc-400">
+          <span className="cursor-pointer text-zinc-50 hover:!text-green-500 dark:text-zinc-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -73,7 +102,10 @@ export const SpotifyPlayer = ({ setPlayerOpen }: { setPlayerOpen: Dispatch<SetSt
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
             </svg>
           </span>
-          <span className="cursor-pointer text-zinc-50 dark:text-zinc-400" onClick={() => setPlayerOpen(false)}>
+          <span
+            className="cursor-pointer text-zinc-50 hover:!text-green-500 dark:text-zinc-400"
+            onClick={() => setPlayerOpen(false)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
