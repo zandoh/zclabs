@@ -42,16 +42,17 @@ const socials = defineCollection({
 
 const uses = defineCollection({
   type: "data",
-  schema: z.object({
-    section: z.string(),
-    data: z.array(
-      z.object({
-        name: z.string(),
-        link: z.string().url(),
-        description: z.string(),
-      }),
-    ),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      section: z.string(),
+      data: z.array(
+        z.object({
+          name: z.string(),
+          link: z.string().url(),
+          logo: z.object({ image: image() }).optional(),
+        }),
+      ),
+    }),
 });
 
 const navigation = defineCollection({

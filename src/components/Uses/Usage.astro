@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -8,11 +9,18 @@ interface Props {
 const { usage } = Astro.props;
 ---
 
-<li class="group relative flex flex-col items-start">
-  <h3 class="text-base font-semibold tracking-tight text-zinc-800 underline dark:text-zinc-100">
-    <a href={usage.link} target="_blank" rel="noopener noreferrer">{usage.name}</a>
-  </h3>
-  <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-    {usage.description}
-  </p>
-</li>
+<div class="flex flex-col items-center justify-center gap-3 bg-zinc-50 p-8 shadow-md dark:bg-zinc-800 sm:p-10">
+  <a
+    class="cursor-pointer font-bold text-zinc-800 hover:text-teal-500 dark:text-zinc-100 dark:hover:text-teal-400"
+    href={usage.link}
+    target="_blank"
+    rel="noopener noreferrer">{usage.name}</a
+  >
+  <Image
+    class="w-max-[170px] h-max-[170px] w-full !object-contain p-4"
+    src={usage.logo.image.src}
+    width={170}
+    height={170}
+    alt={`${usage.name} logo`}
+  />
+</div>

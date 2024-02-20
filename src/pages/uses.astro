@@ -6,14 +6,28 @@ import Usage from "../components/Uses/Usage.astro";
 import UsageSection from "../components/Uses/UsageSection.astro";
 
 const sectionPriority: CollectionEntry<"uses">["data"]["section"][] = ["Software", "Gear", "Services"];
-const usages = await getCollection("uses").then((res) =>
-  res.sort((a, b) => {
+
+const usesCollection = await await getCollection("uses");
+
+const softwareUsages = usesCollection
+  .slice()
+  .filter((res) => res.data.section === "Software")
+  .sort((a, b) => {
     const priorityA = sectionPriority.indexOf(a.data.section);
     const priorityB = sectionPriority.indexOf(b.data.section);
 
     return priorityA - priorityB;
-  }),
-);
+  });
+
+const otherUsages = usesCollection
+  .slice()
+  .filter((res) => res.data.section !== "Software")
+  .sort((a, b) => {
+    const priorityA = sectionPriority.indexOf(a.data.section);
+    const priorityB = sectionPriority.indexOf(b.data.section);
+
+    return priorityA - priorityB;
+  });
 ---
 
 <BaseLayout title="Uses - Zac Clark" description="Software I use, gadgets I love, and other things I recommend.">
@@ -29,16 +43,41 @@ const usages = await getCollection("uses").then((res) =>
         >uses.tech</a
       >
     </Fragment>
-    <div class="space-y-20">
+    <div class="flex flex-col gap-8">
       {
-        usages.map(({ data: { section, data: usages } }) => (
-          <UsageSection id={section} title={section}>
-            {usages.map((usage) => (
-              <Usage usage={usage} />
-            ))}
-          </UsageSection>
+        otherUsages.map(({ data: { section, data: usages } }) => (
+          <div>
+            <div class="mb-6 text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-xl">
+              {section}
+            </div>
+            <ul class="mt-6 flex list-disc flex-col gap-2 pl-8 text-base text-zinc-600 dark:text-zinc-400">
+              {usages.map((usage) => (
+                <li class="text-zinc-800 dark:text-zinc-100">
+                  <a
+                    href={usage.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="cursor-pointer hover:text-teal-500 dark:hover:text-teal-400"
+                  >
+                    {usage.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         ))
       }
+      <div>
+        {
+          softwareUsages.map(({ data: { section, data: usages } }) => (
+            <UsageSection title={section}>
+              {usages.map((usage) => (
+                <Usage usage={usage} />
+              ))}
+            </UsageSection>
+          ))
+        }
+      </div>
     </div>
   </PageLayout>
 </BaseLayout>

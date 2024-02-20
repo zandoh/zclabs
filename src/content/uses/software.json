@@ -2,44 +2,64 @@
   "section": "Software",
   "data": [
     {
-      "name": "VS Code",
-      "link": "https://code.visualstudio.com/",
-      "description": "My editor of choice"
+      "name": "Arc",
+      "link": "https://arc.net/",
+      "logo": { "image": "/src/assets/uses/arc.svg" }
     },
     {
-      "name": "Warp",
-      "link": "https://www.warp.dev/",
-      "description": "My terminal of choice"
+      "name": "Astro",
+      "link": "https://astro.build/",
+      "logo": { "image": "/src/assets/uses/astro.png" }
+    },
+    {
+      "name": "Bitwarden",
+      "link": "https://bitwarden.com/",
+      "logo": { "image": "/src/assets/uses/bitwarden.png" }
+    },
+    {
+      "name": "Discord",
+      "link": "https://discord.gg/",
+      "logo": { "image": "/src/assets/uses/discord.png" }
+    },
+    {
+      "name": "Fork",
+      "link": "https://git-fork.com/",
+      "logo": { "image": "/src/assets/uses/fork.png" }
+    },
+    {
+      "name": "Raycast",
+      "link": "https://www.raycast.com/",
+      "logo": { "image": "/src/assets/uses/raycast.png" }
     },
     {
       "name": "React",
       "link": "https://react.dev/",
-      "description": "My UI library of choice"
-    },
-    {
-      "name": "TypeScript",
-      "link": "https://www.typescriptlang.org/",
-      "description": "My language of choice"
+      "logo": { "image": "/src/assets/uses/react.svg" }
     },
     {
       "name": "Remix",
       "link": "https://remix.run/",
-      "description": "My full-stack framework of choice"
+      "logo": { "image": "/src/assets/uses/remix.svg" }
     },
     {
-      "name": "Arc",
-      "link": "https://arc.net/",
-      "description": "My browser of choice"
+      "name": "Spotify",
+      "link": "https://spotify.com/",
+      "logo": { "image": "/src/assets/uses/spotify.webp" }
     },
     {
-      "name": "Zoom",
-      "link": "https://zoom.us/",
-      "description": "My video conferencing tool of choice"
+      "name": "TypeScript",
+      "link": "https://www.typescriptlang.org/",
+      "logo": { "image": "/src/assets/uses/typescript.svg" }
     },
     {
-      "name": "Slack",
-      "link": "https://slack.com/",
-      "description": "My chat tool of choice"
+      "name": "VS Code",
+      "link": "https://code.visualstudio.com/",
+      "logo": { "image": "/src/assets/uses/vscode.svg" }
+    },
+    {
+      "name": "Warp",
+      "link": "https://www.warp.dev/",
+      "logo": { "image": "/src/assets/uses/warp.png" }
     }
   ]
 }
