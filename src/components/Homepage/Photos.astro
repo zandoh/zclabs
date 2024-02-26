@@ -12,7 +12,7 @@ const collection = await getCollection("heroImages");
         data.map(({ image }, index) => (
           <div
             class:list={[
-              "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl",
+              "relative aspect-[9/10] w-44 flex-none select-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl",
               rotations[index % rotations.length],
             ]}
           >

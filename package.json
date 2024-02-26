@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "VERCEL_FORCE_NO_BUILD_CACHE=1 astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
