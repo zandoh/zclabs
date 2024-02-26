@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "VERCEL_FORCE_NO_BUILD_CACHE=1 astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -14,8 +14,10 @@
     "@astrojs/react": "^3.0.9",
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/vercel": "^7.3.1",
+    "@nextui-org/react": "^2.2.9",
     "@octokit/core": "^5.1.0",
     "@spotify/web-api-ts-sdk": "^1.2.0",
+    "@tabler/icons-react": "^2.47.0",
     "@tailwindcss/typography": "^0.5.9",
     "@tanstack/react-query": "^5.20.5",
     "@types/react": "^18.2.21",
@@ -26,6 +28,7 @@
     "@vercel/speed-insights": "^1.0.5",
     "astro": "^4.3.7",
     "astro-compress": "^2.2.10",
+    "framer-motion": "^11.0.6",
     "node-fetch": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

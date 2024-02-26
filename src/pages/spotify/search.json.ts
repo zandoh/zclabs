@@ -18,11 +18,11 @@ export const GET: APIRoute = async ({ url: { searchParams } }) => {
   }
 
   try {
-    const items = await sdk.search(query, ["album", "artist", "playlist", "track", "show", "episode", "audiobook"]);
+    const items = await sdk.search(query, ["track", "episode"], undefined, 10);
 
     return new Response(
       JSON.stringify({
-        data: items,
+        data: [...items.episodes.items, ...items.tracks.items],
       }),
       {
         status: 200,

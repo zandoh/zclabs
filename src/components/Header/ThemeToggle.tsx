@@ -30,7 +30,7 @@ const MoonIcon = ({ className }) => (
 );
 
 export const ThemeToggle = () => {
-  const { isDarkMode, toggle } = useDarkMode();
+  const { isDarkMode, toggle } = useDarkMode(true);
 
   const toggleTheme = () => {
     isDarkMode

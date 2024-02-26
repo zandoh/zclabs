@@ -1,12 +1,16 @@
+import { nextui } from "@nextui-org/react";
 import typographyPlugin from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
 
 import typographyStyles from "./typography";
 
 export default {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: [
+    "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+  ],
   darkMode: "class",
-  plugins: [typographyPlugin],
+  plugins: [typographyPlugin, nextui()],
   theme: {
     extend: {
       animation: {
