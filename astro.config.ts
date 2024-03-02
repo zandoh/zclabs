@@ -21,6 +21,6 @@ export default defineConfig({
       layout: "constrained",
     }),
   },
-  integrations: [tailwind(), react(), compress()],
+  integrations: [tailwind(), react(), compress({ SVG: false })],
   publicDir: "./public",
 });
