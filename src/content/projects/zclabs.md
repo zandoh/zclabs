@@ -5,7 +5,7 @@ link:
   href: "https://github.com/zandoh/zclabs"
   label: "github.com"
 logo:
-  image: "/src/assets/projects/zclabs.svg"
+  image: "/src/assets/projects/zclabs.png"
 featured: true
 ---
 
