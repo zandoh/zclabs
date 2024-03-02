@@ -21,7 +21,12 @@ const { title, description, author = "Zac Clark" } = Astro.props;
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
-<meta property="og:url" content={`${Astro.site}`} />
-<meta property="og:image" content={`${Astro.site}/og-image.jpg`} />
+<meta property="og:url" content={import.meta.env.SITE} />
+<meta property="og:image" content={`${import.meta.env.SITE}/og-image.jpg`} />
+
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={`${import.meta.env.SITE}/og-image.jpg`} />
+<meta property="twitter:card" content={`${import.meta.env.SITE}/og-image.jpg`} />
 
 <title>{title}</title>
