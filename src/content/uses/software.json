@@ -4,7 +4,7 @@
     {
       "name": "Arc",
       "link": "https://arc.net/",
-      "logo": { "image": "/src/assets/uses/arc.svg" }
+      "logo": { "image": "/src/assets/uses/arc.webp" }
     },
     {
       "name": "Astro",
@@ -34,12 +34,12 @@
     {
       "name": "React",
       "link": "https://react.dev/",
-      "logo": { "image": "/src/assets/uses/react.svg" }
+      "logo": { "image": "/src/assets/uses/react.png" }
     },
     {
       "name": "Remix",
       "link": "https://remix.run/",
-      "logo": { "image": "/src/assets/uses/remix.svg" }
+      "logo": { "image": "/src/assets/uses/remix.png" }
     },
     {
       "name": "Spotify",
@@ -49,12 +49,12 @@
     {
       "name": "TypeScript",
       "link": "https://www.typescriptlang.org/",
-      "logo": { "image": "/src/assets/uses/typescript.svg" }
+      "logo": { "image": "/src/assets/uses/typescript.png" }
     },
     {
       "name": "VS Code",
       "link": "https://code.visualstudio.com/",
-      "logo": { "image": "/src/assets/uses/vscode.svg" }
+      "logo": { "image": "/src/assets/uses/vscode.png" }
     },
     {
       "name": "Warp",
