@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import useDarkMode from "../../hooks/useDarkMode";
+import { useDarkMode } from "usehooks-ts";
 
 const SunIcon = ({ className }) => (
   <svg

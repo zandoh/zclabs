@@ -3,12 +3,12 @@ import { IconCheck, IconSearch, IconX } from "@tabler/icons-react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { useDebounce } from "../../hooks/useDebounce";
+import { useDebounce } from "usehooks-ts";
 import { addSuggestion, getSearchResults } from "./clientApi";
 
 export const SpotifySearchPanel = () => {
   const [search, setSearch] = useState<string>("");
-  const debouncedSearchTerm = useDebounce(search);
+  const debouncedSearchTerm = useDebounce(search, 500);
 
   const { data, isPending, error } = useQuery({
     queryKey: ["search", debouncedSearchTerm],
