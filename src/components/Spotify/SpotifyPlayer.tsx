@@ -85,7 +85,7 @@ export const SpotifyPlayer = ({ setPlayerOpen }: { setPlayerOpen: Dispatch<SetSt
     <>
       <div className="fixed bottom-0 right-5 max-w-[400px] select-none">
         <AnimatePresence>
-          {true && (
+          {searchOpen && (
             <motion.div {...searchPanelAnimation}>
               <SpotifySearchPanel setSearchOpen={setSearchOpen} />
             </motion.div>
