@@ -1,18 +1,22 @@
 import type { Episode, Track } from "@spotify/web-api-ts-sdk";
 import { useQuery } from "@tanstack/react-query";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState, type Dispatch, type SetStateAction } from "react";
+import { useRef, useState, type Dispatch, type SetStateAction } from "react";
 import { match } from "ts-pattern";
+import { useOnClickOutside } from "usehooks-ts";
 import { SpotifySearchPanel } from "./SpotifySearchPanel";
 import { getPlaybackState } from "./clientApi";
 
 export const SpotifyPlayer = ({ setPlayerOpen }: { setPlayerOpen: Dispatch<SetStateAction<boolean>> }) => {
+  const ref = useRef<HTMLDivElement>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const { data, isPending, error } = useQuery({
     queryKey: ["spotify/playing/data"],
     queryFn: getPlaybackState,
     refetchInterval: 5000,
   });
+
+  useOnClickOutside(ref, () => setPlayerOpen(false));
 
   if (!data || isPending || error) {
     return <></>;
@@ -82,8 +86,18 @@ export const SpotifyPlayer = ({ setPlayerOpen }: { setPlayerOpen: Dispatch<SetSt
   };
 
   return (
-    <>
-      <div className="fixed bottom-0 right-5 max-w-[400px] select-none">
+    <motion.div
+      ref={ref}
+      className="fixed bottom-0 right-5 max-w-[400px] select-none"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.1,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+    >
+      <div>
         <AnimatePresence>
           {searchOpen && (
             <motion.div {...searchPanelAnimation}>
@@ -127,7 +141,7 @@ export const SpotifyPlayer = ({ setPlayerOpen }: { setPlayerOpen: Dispatch<SetSt
           <div className="flex flex-col items-center justify-evenly rounded bg-neutral-400 dark:bg-neutral-950">
             <button
               className="cursor-pointer text-zinc-50 hover:!text-green-500 dark:text-zinc-400"
-              onClick={() => setSearchOpen(true)}
+              onClick={() => setSearchOpen((prev) => !prev)}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -159,11 +173,11 @@ export const SpotifyPlayer = ({ setPlayerOpen }: { setPlayerOpen: Dispatch<SetSt
         </div>
         <div className="mb-4 h-1.5 w-full rounded-full bg-zinc-200 dark:bg-zinc-600">
           <div
-            className="h-1.5 rounded-full bg-green-500 transition-all duration-[5000ms] ease-in-out"
+            className="h-1.5 rounded-full bg-green-500 delay-[5000ms] duration-[5000ms] ease-in-out transition-width"
             style={{ width: `${Math.round((playingTrack.progress / playingTrack.duration) * 100)}%` }}
           ></div>
         </div>
-      </div>{" "}
-    </>
+      </div>
+    </motion.div>
   );
 };

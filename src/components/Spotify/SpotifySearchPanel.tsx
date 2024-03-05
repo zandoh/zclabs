@@ -22,7 +22,7 @@ export const SpotifySearchPanel = ({ setSearchOpen }: { setSearchOpen: Dispatch<
 
   return (
     <Autocomplete
-      className="mb-2 rounded bg-neutral-100 !outline-none !ring-[0px] dark:bg-neutral-900"
+      className="mb-2 rounded bg-neutral-100 dark:bg-neutral-900"
       inputValue={search}
       isLoading={search !== "" && isPending && !error}
       items={data?.data ?? []}
@@ -39,7 +39,6 @@ export const SpotifySearchPanel = ({ setSearchOpen }: { setSearchOpen: Dispatch<
       }}
       startContent={<IconSearch />}
       endContent={isSuccess ? <IconCheck /> : isError ? <IconX /> : <></>}
-      onClose={() => setSearchOpen(false)}
     >
       {(item) => {
         return (
