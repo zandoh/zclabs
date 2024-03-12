@@ -1,12 +1,12 @@
 import { Autocomplete, AutocompleteItem } from "@nextui-org/react";
 import { IconCheck, IconSearch, IconX } from "@tabler/icons-react";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { useState, type Dispatch, type SetStateAction } from "react";
+import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { useDebounce } from "usehooks-ts";
 import { addSuggestion, getSearchResults } from "./clientApi";
 
-export const SpotifySearchPanel = ({ setSearchOpen }: { setSearchOpen: Dispatch<SetStateAction<boolean>> }) => {
+export const SpotifySearchPanel = () => {
   const [search, setSearch] = useState<string>("");
   const debouncedSearchTerm = useDebounce(search, 500);
 
