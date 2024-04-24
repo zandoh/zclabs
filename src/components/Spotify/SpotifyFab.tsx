@@ -17,6 +17,7 @@ export const SpotifyFab = ({ setPlayerOpen }: { setPlayerOpen: Dispatch<SetState
         data?.data?.is_playing && "animate-spotify-amplify",
       )}
       onClick={() => setPlayerOpen(true)}
+      aria-label="Spotify logo"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" className="rounded-full bg-black">
         <path
