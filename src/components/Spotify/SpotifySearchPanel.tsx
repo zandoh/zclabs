@@ -3,12 +3,12 @@ import { IconCheck, IconSearch, IconX } from "@tabler/icons-react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { useDebounce } from "usehooks-ts";
+import { useDebounceValue } from "usehooks-ts";
 import { addSuggestion, getSearchResults } from "./clientApi";
 
 export const SpotifySearchPanel = () => {
   const [search, setSearch] = useState<string>("");
-  const debouncedSearchTerm = useDebounce(search, 500);
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useDebounceValue(search, 500);
 
   const { data, isPending, error } = useQuery({
     queryKey: ["search", debouncedSearchTerm],
@@ -30,7 +30,10 @@ export const SpotifySearchPanel = () => {
       variant="flat"
       aria-label="Search spotify for track or episode suggestions"
       autoFocus
-      onInputChange={setSearch}
+      onInputChange={(v) => {
+        setSearch(v);
+        setDebouncedSearchTerm(v);
+      }}
       onSelectionChange={mutate}
       errorMessage={error && "Failed to search spotify."}
       popoverProps={{
