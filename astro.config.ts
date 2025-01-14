@@ -13,6 +13,7 @@ export default defineConfig({
       enabled: true,
     },
     maxDuration: 8,
+    imageService: true
   }),
   image: {
     service: imageService({
