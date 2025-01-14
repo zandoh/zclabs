@@ -8,7 +8,7 @@ import {
 import { createClient } from "@vercel/kv";
 
 export const ApiUtils = {
-  encodeFormData: (data) => {
+  encodeFormData: (data: Record<string, string | number | boolean>) => {
     return Object.keys(data)
       .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&");
@@ -57,9 +57,9 @@ export const RedisUtils = {
   }),
   getTokens: async () => {
     try {
-      const access_token: string = await RedisUtils.client.get(`${import.meta.env.ENVIRONMENT}/access_token`);
-      const refresh_token: string = await RedisUtils.client.get(`${import.meta.env.ENVIRONMENT}/refresh_token`);
-      const expires = await RedisUtils.client.get(`${import.meta.env.ENVIRONMENT}/expires`);
+      const access_token = await RedisUtils.client.get<string>(`${import.meta.env.ENVIRONMENT}/access_token`);
+      const refresh_token = await RedisUtils.client.get<string>(`${import.meta.env.ENVIRONMENT}/refresh_token`);
+      const expires = await RedisUtils.client.get<string>(`${import.meta.env.ENVIRONMENT}/expires`);
 
       return {
         access_token,

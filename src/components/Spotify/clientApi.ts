@@ -6,13 +6,13 @@ export const getPlaybackState = (): Promise<{ data: PlaybackState | null }> => {
     .catch((e) => console.error("Failed to get playback state. ", e));
 };
 
-export const getSearchResults = (query): Promise<{ data: Array<Track | SimplifiedEpisode> | null }> => {
+export const getSearchResults = (query: string): Promise<{ data: Array<Track | SimplifiedEpisode> | null }> => {
   return fetch(`/spotify/search.json?q=${encodeURIComponent(query)}`)
     .then((res) => res.json())
     .catch((e) => console.error("Failed to get search results. ", e));
 };
 
-export const addSuggestion = (spotifyId): Promise<void> => {
+export const addSuggestion = (spotifyId: string): Promise<void> => {
   return fetch("/spotify/suggest.json", {
     method: "PUT",
     headers: { "Content-Type": "application/json" },

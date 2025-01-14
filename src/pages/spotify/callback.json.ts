@@ -23,6 +23,13 @@ export const GET: APIRoute = async ({ url: { searchParams }, cookies }) => {
     });
   }
 
+  if (!code) {
+    return new Response(null, {
+      status: 400,
+      statusText: "Code error",
+    });
+  }
+
   cookies.delete("state");
 
   return fetch("https://accounts.spotify.com/api/token", {

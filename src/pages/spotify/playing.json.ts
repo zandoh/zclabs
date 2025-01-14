@@ -8,6 +8,13 @@ export const GET: APIRoute = async () => {
   try {
     const { access_token, refresh_token, expires } = await RedisUtils.getTokens();
 
+    if (!access_token || !refresh_token) {
+      return new Response(null, {
+        status: 500,
+        statusText: "Error",
+      });
+    }
+
     const sdk = SpotifyUtils.createSpotifyApi(
       clientId,
       {

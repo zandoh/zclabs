@@ -34,11 +34,11 @@ export const SpotifySearchPanel = () => {
         setSearch(v);
         setDebouncedSearchTerm(v);
       }}
-      onSelectionChange={mutate}
+      onSelectionChange={(key) => key && mutate(key.toString())}
       errorMessage={error && "Failed to search spotify."}
       popoverProps={{
         placement: "top",
-        className: twMerge(["w-[400px]", (!data || data?.data.length === 0) && "invisible !p-0"]),
+        className: twMerge(["w-[400px]", (!data || data?.data?.length === 0) && "invisible !p-0"]),
       }}
       startContent={<IconSearch />}
       endContent={isSuccess ? <IconCheck /> : isError ? <IconX /> : <></>}
