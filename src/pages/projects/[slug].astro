@@ -3,6 +3,8 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import FluidContainer from "../../components/Container/FluidContainer.astro";
 import BaseLayout from "../../components/General/BaseLayout.astro";
 
+export const prerender = true;
+
 // `getStaticPaths` gets called at build time and generates the paths from the content directory
 export async function getStaticPaths() {
   const allProjects = await getCollection("projects");
