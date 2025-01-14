@@ -1,7 +1,7 @@
 import type { Episode, Track } from "@spotify/web-api-ts-sdk";
 import { useQuery } from "@tanstack/react-query";
 import { AnimatePresence, motion } from "framer-motion";
-import { useRef, useState, type Dispatch, type SetStateAction } from "react";
+import { useRef, useState, type Dispatch, type RefObject, type SetStateAction } from "react";
 import { match } from "ts-pattern";
 import { useOnClickOutside } from "usehooks-ts";
 import { SpotifySearchPanel } from "./SpotifySearchPanel";
@@ -16,7 +16,7 @@ export const SpotifyPlayer = ({ setPlayerOpen }: { setPlayerOpen: Dispatch<SetSt
     refetchInterval: 5000,
   });
 
-  useOnClickOutside(ref, () => setPlayerOpen(false));
+  useOnClickOutside(ref as unknown as RefObject<HTMLDivElement>, () => setPlayerOpen(false));
 
   if (!data || isPending || error) {
     return <></>;
