@@ -5,7 +5,7 @@ import {
   type ICachable,
   type SdkOptions,
 } from "@spotify/web-api-ts-sdk";
-import { createClient } from "@vercel/kv";
+import { Redis } from "@upstash/redis";
 
 export const ApiUtils = {
   encodeFormData: (data: Record<string, string | number | boolean>) => {
@@ -51,9 +51,9 @@ export const SpotifyUtils = {
 };
 
 export const RedisUtils = {
-  client: createClient({
-    url: import.meta.env.KV_REST_API_URL,
-    token: import.meta.env.KV_REST_API_TOKEN,
+  client: new Redis({
+    url: import.meta.env.UPSTASH_REDIS_REST_URL,
+    token: import.meta.env.UPSTASH_REDIS_REST_TOKEN,
   }),
   getTokens: async () => {
     try {

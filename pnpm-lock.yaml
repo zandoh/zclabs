@@ -15,13 +15,13 @@ importers:
     dependencies:
       '@astrojs/node':
         specifier: ^9.0.2
-        version: 9.0.2(astro@5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(@vercel/kv@3.0.0)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3))
+        version: 9.0.2(astro@5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(ioredis@5.4.2)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3))
       '@astrojs/react':
         specifier: ^4.2.0
         version: 4.2.0(@types/node@22.12.0)(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(jiti@1.21.7)(lightningcss@1.28.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(terser@5.37.0)
       '@astrojs/tailwind':
         specifier: ^5.1.5
-        version: 5.1.5(astro@5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(@vercel/kv@3.0.0)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3))(tailwindcss@3.4.17)
+        version: 5.1.5(astro@5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(ioredis@5.4.2)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3))(tailwindcss@3.4.17)
       '@nextui-org/react':
         specifier: ^2.6.11
         version: 2.6.11(@types/react@19.0.8)(framer-motion@12.0.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)
@@ -42,16 +42,16 @@ importers:
         version: 5.65.0(react@19.0.0)
       '@unpic/astro':
         specifier: ^1.0.0
-        version: 1.0.0(astro@5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(@vercel/kv@3.0.0)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3))
-      '@vercel/kv':
-        specifier: ^3.0.0
-        version: 3.0.0
+        version: 1.0.0(astro@5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(ioredis@5.4.2)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3))
+      '@upstash/redis':
+        specifier: ^1.34.3
+        version: 1.34.3
       astro:
         specifier: ^5.1.10
-        version: 5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(@vercel/kv@3.0.0)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3)
+        version: 5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(ioredis@5.4.2)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3)
       astro-compress:
         specifier: ^2.3.6
-        version: 2.3.6(@types/node@22.12.0)(@upstash/redis@1.34.3)(@vercel/kv@3.0.0)(jiti@1.21.7)(rollup@4.30.1)(typescript@5.7.3)
+        version: 2.3.6(@types/node@22.12.0)(@upstash/redis@1.34.3)(ioredis@5.4.2)(jiti@1.21.7)(rollup@4.30.1)(typescript@5.7.3)
       framer-motion:
         specifier: ^12.0.6
         version: 12.0.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -516,6 +516,9 @@ packages:
 
   '@internationalized/string@3.2.5':
     resolution: {integrity: sha512-rKs71Zvl2OKOHM+mzAFMIyqR5hI1d1O6BBkMK2/lkfg3fkmVh9Eeg0awcA8W2WqYqDOv6a86DIOlFpggwLtbuw==}
+
+  '@ioredis/commands@1.2.0':
+    resolution: {integrity: sha512-Sx1pU8EM64o2BrqNpEO1CNLtKQwyhuXuqyfH7oGKCk+1a33d2r5saW8zNwm3j6BTExtjrv2BxTgzzkMwts6vGg==}
 
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -1939,10 +1942,6 @@ packages:
   '@upstash/redis@1.34.3':
     resolution: {integrity: sha512-VT25TyODGy/8ljl7GADnJoMmtmJ1F8d84UXfGonRRF8fWYJz7+2J6GzW+a6ETGtk4OyuRTt7FRSvFG5GvrfSdQ==}
 
-  '@vercel/kv@3.0.0':
-    resolution: {integrity: sha512-pKT8fRnfyYk2MgvyB6fn6ipJPCdfZwiKDdw7vB+HL50rjboEBHDVBEcnwfkEpVSp2AjNtoaOUH7zG+bVC/rvSg==}
-    engines: {node: '>=14.6'}
-
   '@vitejs/plugin-react@4.3.4':
     resolution: {integrity: sha512-SCCPBJtYLdE8PX/7ZQAs1QAZ8Jqwih+0VBLum1EGqmCCQal+MIUqLCzj3ZUy8ufbC0cAM4LRlSTm7IQJwWT4ug==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -2110,6 +2109,10 @@ packages:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
     engines: {node: '>=6'}
 
+  cluster-key-slot@1.1.2:
+    resolution: {integrity: sha512-RMr0FhtfXemyinomL4hrWcYJxmX6deFdCxpJzhDttxgO1+bcCnkk+9drydLVDmAMG7NE6aN/fl4F7ucU/90gAA==}
+    engines: {node: '>=0.10.0'}
+
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
     engines: {node: '>=7.0.0'}
@@ -2231,6 +2234,10 @@ packages:
 
   defu@6.1.4:
     resolution: {integrity: sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==}
+
+  denque@2.1.0:
+    resolution: {integrity: sha512-HVQE3AAb/pxF8fQAoiqpvg9i3evqug3hoiwakOyZAwJm+6vZehbkYXZ0l4JxS+I3QxM97v5aaRNhj8v5oBhekw==}
+    engines: {node: '>=0.10'}
 
   depd@2.0.0:
     resolution: {integrity: sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==}
@@ -2531,6 +2538,10 @@ packages:
   intl-messageformat@10.7.14:
     resolution: {integrity: sha512-mMGnE4E1otdEutV5vLUdCxRJygHB5ozUBxsPB5qhitewssrS/qGruq9bmvIRkkGsNeK5ZWLfYRld18UHGTIifQ==}
 
+  ioredis@5.4.2:
+    resolution: {integrity: sha512-0SZXGNGZ+WzISQ67QDyZ2x0+wVxjjUndtD8oSeik/4ajifeiRufed8fCb8QW8VMyi4MXcS+UO1k/0NGhvq1PAg==}
+    engines: {node: '>=12.22.0'}
+
   iron-webcrypto@1.2.1:
     resolution: {integrity: sha512-feOM6FaSr6rEABp/eDfVseKyTMDt+KGpeB35SkVn9Tyn0CqvVsY3EwI0v5i8nMHyJnzCIQf7nsy3p41TPkJZhg==}
 
@@ -2709,6 +2720,12 @@ packages:
 
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
+
+  lodash.defaults@4.2.0:
+    resolution: {integrity: sha512-qjxPLHd3r5DnsdGacqOMU6pb/avJzdh9tFX2ymgoZE27BmjXrNy/y4LoaiTeAb+O3gL8AfpJGtqfX/ae2leYYQ==}
+
+  lodash.isarguments@3.1.0:
+    resolution: {integrity: sha512-chi4NHZlZqZD18a0imDHnZPrDeBbTtVN7GXMwuGdRH9qotxAjYs3aVLKc7zNOG9eddR5Ksd8rvFEBc9SsggPpg==}
 
   lodash.isplainobject@4.0.6:
     resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
@@ -3216,6 +3233,14 @@ packages:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
 
+  redis-errors@1.2.0:
+    resolution: {integrity: sha512-1qny3OExCf0UvUV/5wpYKf2YwPcOqXzkwKKSmKHiE6ZMQs5heeE/c8eXK+PNllPvmjgAbfnsbpkGZWy8cBpn9w==}
+    engines: {node: '>=4'}
+
+  redis-parser@3.0.0:
+    resolution: {integrity: sha512-DJnGAeenTdpMEH6uAJRK/uiyEIH9WVsUmoLwzudwGJUwZPp80PDBWPHXSAGNPwNvIXAbe7MSUB1zQFugFml66A==}
+    engines: {node: '>=4'}
+
   regenerator-runtime@0.14.1:
     resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
 
@@ -3361,6 +3386,9 @@ packages:
 
   sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
+
+  standard-as-callback@2.1.0:
+    resolution: {integrity: sha512-qoRRSyROncaz1z0mvYqIE4lCd9p2R90i6GxW3uZv5ucSu8tU7B5HXUP1gG8pVZsYNVaXjk8ClXHPttLyxAL48A==}
 
   statuses@2.0.1:
     resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
@@ -3807,9 +3835,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/node@9.0.2(astro@5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(@vercel/kv@3.0.0)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3))':
+  '@astrojs/node@9.0.2(astro@5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(ioredis@5.4.2)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3))':
     dependencies:
-      astro: 5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(@vercel/kv@3.0.0)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3)
+      astro: 5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(ioredis@5.4.2)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3)
       send: 1.1.0
       server-destroy: 1.0.1
     transitivePeerDependencies:
@@ -3842,9 +3870,9 @@ snapshots:
       - tsx
       - yaml
 
-  '@astrojs/tailwind@5.1.5(astro@5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(@vercel/kv@3.0.0)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3))(tailwindcss@3.4.17)':
+  '@astrojs/tailwind@5.1.5(astro@5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(ioredis@5.4.2)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3))(tailwindcss@3.4.17)':
     dependencies:
-      astro: 5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(@vercel/kv@3.0.0)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3)
+      astro: 5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(ioredis@5.4.2)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3)
       autoprefixer: 10.4.20(postcss@8.5.1)
       postcss: 8.5.1
       postcss-load-config: 4.0.2(postcss@8.5.1)
@@ -4179,6 +4207,9 @@ snapshots:
   '@internationalized/string@3.2.5':
     dependencies:
       '@swc/helpers': 0.5.15
+
+  '@ioredis/commands@1.2.0':
+    optional: true
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -6514,12 +6545,12 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@unpic/astro@1.0.0(astro@5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(@vercel/kv@3.0.0)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3))':
+  '@unpic/astro@1.0.0(astro@5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(ioredis@5.4.2)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3))':
     dependencies:
       '@unpic/core': 1.0.0
       '@unpic/pixels': 1.3.0
       '@unpic/placeholder': 0.1.2
-      astro: 5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(@vercel/kv@3.0.0)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3)
+      astro: 5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(ioredis@5.4.2)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3)
       blurhash: 2.0.5
 
   '@unpic/core@1.0.0':
@@ -6539,10 +6570,6 @@ snapshots:
   '@upstash/redis@1.34.3':
     dependencies:
       crypto-js: 4.2.0
-
-  '@vercel/kv@3.0.0':
-    dependencies:
-      '@upstash/redis': 1.34.3
 
   '@vitejs/plugin-react@4.3.4(vite@6.0.11(@types/node@22.12.0)(jiti@1.21.7)(lightningcss@1.28.2)(terser@5.37.0))':
     dependencies:
@@ -6590,12 +6617,12 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro-compress@2.3.6(@types/node@22.12.0)(@upstash/redis@1.34.3)(@vercel/kv@3.0.0)(jiti@1.21.7)(rollup@4.30.1)(typescript@5.7.3):
+  astro-compress@2.3.6(@types/node@22.12.0)(@upstash/redis@1.34.3)(ioredis@5.4.2)(jiti@1.21.7)(rollup@4.30.1)(typescript@5.7.3):
     dependencies:
       '@playform/pipe': 0.1.2
       '@types/csso': 5.0.4
       '@types/html-minifier-terser': 7.0.2
-      astro: 5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(@vercel/kv@3.0.0)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3)
+      astro: 5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(ioredis@5.4.2)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3)
       commander: 13.0.0
       csso: 5.0.5
       deepmerge-ts: 7.1.3
@@ -6638,7 +6665,7 @@ snapshots:
       - uploadthing
       - yaml
 
-  astro@5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(@vercel/kv@3.0.0)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3):
+  astro@5.1.10(@types/node@22.12.0)(@upstash/redis@1.34.3)(ioredis@5.4.2)(jiti@1.21.7)(lightningcss@1.28.2)(rollup@4.30.1)(terser@5.37.0)(typescript@5.7.3):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.4.2
@@ -6688,7 +6715,7 @@ snapshots:
       tsconfck: 3.1.4(typescript@5.7.3)
       ultrahtml: 1.5.3
       unist-util-visit: 5.0.0
-      unstorage: 1.14.4(@upstash/redis@1.34.3)(@vercel/kv@3.0.0)
+      unstorage: 1.14.4(@upstash/redis@1.34.3)(ioredis@5.4.2)
       vfile: 6.0.3
       vite: 6.0.11(@types/node@22.12.0)(jiti@1.21.7)(lightningcss@1.28.2)(terser@5.37.0)
       vitefu: 1.0.5(vite@6.0.11(@types/node@22.12.0)(jiti@1.21.7)(lightningcss@1.28.2)(terser@5.37.0))
@@ -6834,6 +6861,9 @@ snapshots:
 
   clsx@2.1.1: {}
 
+  cluster-key-slot@1.1.2:
+    optional: true
+
   color-convert@2.0.1:
     dependencies:
       color-name: 1.1.4
@@ -6931,6 +6961,9 @@ snapshots:
   deepmerge@4.3.1: {}
 
   defu@6.1.4: {}
+
+  denque@2.1.0:
+    optional: true
 
   depd@2.0.0: {}
 
@@ -7281,6 +7314,21 @@ snapshots:
       '@formatjs/icu-messageformat-parser': 2.11.0
       tslib: 2.8.1
 
+  ioredis@5.4.2:
+    dependencies:
+      '@ioredis/commands': 1.2.0
+      cluster-key-slot: 1.1.2
+      debug: 4.4.0
+      denque: 2.1.0
+      lodash.defaults: 4.2.0
+      lodash.isarguments: 3.1.0
+      redis-errors: 1.2.0
+      redis-parser: 3.0.0
+      standard-as-callback: 2.1.0
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
   iron-webcrypto@1.2.1: {}
 
   is-arrayish@0.3.2: {}
@@ -7411,6 +7459,12 @@ snapshots:
   lodash.castarray@4.4.0: {}
 
   lodash.debounce@4.0.8: {}
+
+  lodash.defaults@4.2.0:
+    optional: true
+
+  lodash.isarguments@3.1.0:
+    optional: true
 
   lodash.isplainobject@4.0.6: {}
 
@@ -8031,6 +8085,14 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
+  redis-errors@1.2.0:
+    optional: true
+
+  redis-parser@3.0.0:
+    dependencies:
+      redis-errors: 1.2.0
+    optional: true
+
   regenerator-runtime@0.14.1: {}
 
   regex-recursion@5.1.1:
@@ -8275,6 +8337,9 @@ snapshots:
 
   sprintf-js@1.0.3: {}
 
+  standard-as-callback@2.1.0:
+    optional: true
+
   statuses@2.0.1: {}
 
   string-width@4.2.3:
@@ -8485,7 +8550,7 @@ snapshots:
 
   unpic@4.0.0: {}
 
-  unstorage@1.14.4(@upstash/redis@1.34.3)(@vercel/kv@3.0.0):
+  unstorage@1.14.4(@upstash/redis@1.34.3)(ioredis@5.4.2):
     dependencies:
       anymatch: 3.1.3
       chokidar: 3.6.0
@@ -8497,7 +8562,7 @@ snapshots:
       ufo: 1.5.4
     optionalDependencies:
       '@upstash/redis': 1.34.3
-      '@vercel/kv': 3.0.0
+      ioredis: 5.4.2
 
   update-browserslist-db@1.1.2(browserslist@4.24.4):
     dependencies:
