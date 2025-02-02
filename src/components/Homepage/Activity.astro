@@ -20,7 +20,7 @@ import { formatUTCDateTimeMonthDay } from "../Utility/date";
 import ActivityItem from "./ActivityItem.astro";
 import ActivityLink from "./ActivityLink.astro";
 
-const token = import.meta.env.GITHUB_PAT;
+const token = import.meta.env.PAT_GITHUB;
 const octokit = new Octokit({ auth: token });
 
 // https://docs.github.com/en/rest/using-the-rest-api/github-event-types?apiVersion=2022-11-28
