@@ -13,7 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: |
+      - name: Set up .env file from secrets
+        run: |
           echo "PAT_GITHUB=${{ secrets.PAT_GITHUB }}" >> .env
           echo "SPOTIFY_CLIENT_ID=${{ secrets.SPOTIFY_CLIENT_ID }}" >> .env
           echo "SPOTIFY_CLIENT_SECRET=${{ secrets.SPOTIFY_CLIENT_SECRET }}" >> .env
@@ -25,6 +26,7 @@ jobs:
           echo "ENVIRONMENT=${{ secrets.ENVIRONMENT }}" >> .env
           echo "ENVIRONMENT_DOMAIN=${{ secrets.ENVIRONMENT_DOMAIN }}" >> .env
           echo "ENVIRONMENT_URL=${{ secrets.ENVIRONMENT_URL }}" >> .env
-      - run: flyctl deploy --remote-only
+      - name: Fly deploy
+        run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
